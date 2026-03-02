@@ -4,33 +4,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Research projects and academic work by Weibo Li, focusing on LLM post-training, digital platforms, and agentic workflows.">
+    <meta property="og:title" content="Research | Weibo Li">
+    <meta property="og:description"
+        content="Research projects and academic work by Weibo Li at Arizona State University.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://weber-liwb.github.io/assets/profile-placeholder.svg">
+    <meta property="og:url" content="https://weber-liwb.github.io/research.html">
+    <link rel="canonical" href="https://weber-liwb.github.io/research.html">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <title>Research | Weibo Li</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <div class="container">
         <header>
             <a href="index.html" class="logo">Weibo Li</a>
-            <nav>
+            <nav aria-label="Main navigation">
+                <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="research.html" class="active">Research</a></li>
+                    <li><a href="index.html">Bio</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="experiences.html">Experiences</a></li>
                     <li><a href="personal.html">Personal</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+            <button class="dark-mode-toggle" aria-label="Switch to dark mode">&#9790;</button>
         </header>
 
-        <main>
+        <main id="main-content">
             <section>
                 <h1>Research Interests</h1>
-                <p>My research interests span a wide range of areas, with a particular focus on leveraging AI technology
-                    in business responsibly and sustainably (socially and economically).</p>
+                <p>My research interests focus on LLM post-training, specifically its applications in digital platforms
+                    and agentic workflows.</p>
             </section>
 
             <section>
-                <h1>Selected Projects</h1>
+                <h2>On-going Projects</h2>
+                <p>To be updated.</p>
+            </section>
+
+            <section>
+                <h2>Completed Undergraduate Projects</h2>
 
                 <div class="paper-item">
                     <span class="paper-title">Evaluating Ride-sharing Matching Strategies: Impacts on User Satisfaction
@@ -48,7 +77,8 @@
                 </div>
 
                 <div class="paper-item">
-                    <span class="paper-title">Deep Learning-based Identification System of Small Orbital Remnants</span>
+                    <span class="paper-title">Deep Learning-based Identification System of Small Orbital
+                        Remnants</span>
                     <p>A system was designed to autonomously detect small orbital remnants (less than 10*10 pixels on
                         the image) through unmanned patrol vehicles and send warnings accordingly. The detection system
                         was based on Yolo V3.</p>
@@ -58,47 +88,18 @@
                     <span class="paper-title">Meta-learning and Hyperparameter Optimization based on Double-layer
                         Programming Structure</span>
                     <p>Combined meta-learning and Hyperparameter Optimization via a double-layer programming structure.
-                        Verified that the approach of ‘approximate gradient’ can greatly reduce the computational time
+                        Verified that the approach of 'approximate gradient' can greatly reduce the computational time
                         complexity.</p>
                 </div>
-            </section>
-
-            <section>
-                <h1>Selected Internships</h1>
-                <ul style="list-style: none;">
-                    <li style="margin-bottom: 1rem;">
-                        <strong>MM Capital</strong> (2023.2 - 2023.6)<br>
-                        Investment Analyst Intern (Gen AI Focus)
-                    </li>
-                    <li style="margin-bottom: 1rem;">
-                        <strong>Huatai Securities, Research Institute</strong> (2022.8 - 2022.9)<br>
-                        Analyst Intern (Financial Engineering Group)
-                    </li>
-                    <li>
-                        <strong>BCG China</strong> (2022.2 - 2022.7)<br>
-                        Part-time Assistant
-                    </li>
-                </ul>
-            </section>
-
-            <section>
-                <h1>Presentations</h1>
-                <ul>
-                    <li>
-                        <strong>Talk Title</strong>, Conference/Venue Name, Location, Date. <a href="#">[Slides]</a>
-                    </li>
-                    <li>
-                        <strong>Another Talk</strong>, Seminar Name, Location, Date.
-                    </li>
-                </ul>
             </section>
         </main>
 
         <footer>
-            <p>&copy; 2025 Weibo Li.</p>
+            <p>&copy; 2026 Weibo Li.</p>
         </footer>
     </div>
 
+    <button class="back-to-top" aria-label="Back to top">&uarr;</button>
     <script src="js/main.js"></script>
 </body>
 
