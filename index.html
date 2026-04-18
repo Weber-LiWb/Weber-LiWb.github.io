@@ -1,143 +1,322 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="white">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Weibo Li - PhD Student in Computer Information Systems at Arizona State University. Research in LLM post-training, digital platforms, and agentic workflows.">
-    <meta property="og:title" content="Weibo Li | Researcher">
-    <meta property="og:description"
-        content="PhD Student in Computer Information Systems at W.P. Carey School of Business, Arizona State University.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://weber-liwb.github.io/assets/profile-placeholder.svg">
-    <meta property="og:url" content="https://weber-liwb.github.io/">
-    <link rel="canonical" href="https://weber-liwb.github.io/">
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-    <title>Weibo Li | Researcher</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Weibo Li (李炜博 · Weber) — PhD student in Computer Information Systems at Arizona State University. Research on LLM post-training, digital platforms, and agentic workflows.">
+  <meta property="og:title" content="Weibo Li — ~/weber">
+  <meta property="og:description" content="PhD student at W.P. Carey, ASU. LLM post-training, digital platforms, agentic workflows.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://weber-liwb.github.io/">
+  <meta property="og:image" content="https://weber-liwb.github.io/assets/profile-placeholder.svg">
+  <link rel="canonical" href="https://weber-liwb.github.io/">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  <title>Weibo Li — ~/weber</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
-<!--
-    ==========================================
-    CONTENT CHECKLIST - Replace these items:
-    ==========================================
-    [ ] Profile photo: replace assets/profile-placeholder.svg with your real photo (500x500px JPG/WebP recommended)
-    [ ] Favicon: place your favicon at assets/favicon.ico (generate at realfavicongenerator.net)
-    [ ] CV PDF: place your CV at assets/cv.pdf
-    [ ] MapMyVisitors: replace YOUR_ID with your actual ID (register at mapmyvisitors.com)
-    [ ] News section: replace [Conference Name] with actual conference name
--->
-
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+<div class="page">
 
-    <div class="container">
-        <header>
-            <a href="index.html" class="logo">Weibo Li</a>
-            <nav aria-label="Main navigation">
-                <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul>
-                    <li><a href="index.html">Bio</a></li>
-                    <li><a href="research.html">Research</a></li>
-                    <li><a href="experiences.html">Experiences</a></li>
-                    <li><a href="personal.html">Personal</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <button class="dark-mode-toggle" aria-label="Switch to dark mode">&#9790;</button>
-        </header>
+  <!-- ASCII logo -->
+  <pre class="ascii"> __          __  _
+ \ \        / / | |
+  \ \  /\  / /__| |__   ___ _ __       <span class="hi">weibo · 李炜博</span>
+   \ \/  \/ / _ \ '_ \ / _ \ '__|      phd student · cis · asu
+    \  /\  /  __/ |_) |  __/ |         currently : tempe, az ● online
+     \/  \/ \___|_.__/ \___|_|
+</pre>
 
-        <main id="main-content">
-            <section class="hero">
-                <div class="hero-content">
-                    <h1>Weibo Li (<span lang="zh">李炜博</span>)</h1>
-                    <p class="affiliation">PhD Student in Computer Information Systems<br>W.P. Carey School of Business,
-                        Arizona State University</p>
-                    <div class="bio-text">
-                        <p>This is Weibo Li (pronounced "Lee Way-Baw"), also known as Weber. I'm a second-year PhD
-                            student in Computer Information Systems at the <a href="https://wpcarey.asu.edu/">W.P. Carey
-                                School of Business</a>, <a href="http://asu.edu">Arizona State University</a>.</p>
-                        <p>I earned my bachelor's degree in Management Information Systems from <a
-                                href="https://en.tongji.edu.cn/p/#/">Tongji University</a>, where I had the honor of
-                            working as a research assistant under Associate Professor Xiaofeng Ma on topics related to
-                            Blockchain and its applications in Finance. Additionally, I was fortunate to be supervised
-                            by Professor Xiaolei Wang on my first research project in shared mobility, as well as on my
-                            bachelor's thesis.</p>
-                        <p>My research interests focus on LLM post-training, specifically its applications in digital
-                            platforms and agentic workflows.</p>
-                    </div>
+  <!-- Top bar -->
+  <nav class="topbar" aria-label="Section navigation">
+    <div class="left">
+      <a href="#about">~/about</a>
+      <a href="#now">/now</a>
+      <a href="#research">/research</a>
+      <a href="#cv">/cv</a>
+      <a href="#off">/off-duty</a>
+      <a href="#log">/changelog</a>
+      <a href="#contact">/contact</a>
+    </div>
+    <div class="right">
+      <span><span class="dot">●</span> last pushed apr 17</span>
+      <button type="button" class="theme-toggle" aria-label="Toggle theme">[cool]</button>
+    </div>
+  </nav>
 
-                    <div class="education-section section-spaced">
-                        <h3>Education</h3>
-                        <ul class="plain-list">
-                            <li>
-                                <strong>Arizona State University</strong> (2024.8 - Present)<br>
-                                PhD in Business Administration (Computer Information Systems)<br>
-                                W.P. Carey School of Business
-                            </li>
-                            <li>
-                                <strong>Tongji University, Shanghai</strong> (2018.9 - 2023.7)<br>
-                                Bachelor of Science in Management (Management Information Systems)<br>
-                                School of Economics and Management<br>
-                                <em>Prior to 2020, my major was Mechanical Engineering. I transferred to MIS in September
-                                    2020.</em>
-                            </li>
-                        </ul>
-                    </div>
+  <!-- HERO -->
+  <section class="hero" id="about">
+    <div class="prompt-line"><span class="p">weber@asu</span><span class="c">:~$</span> whoami</div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="name">
+          Weibo Li
+          <span class="zh" lang="zh">李炜博 · &ldquo;Weber&rdquo;</span>
+        </h1>
+        <div class="role">
+          PhD student <span class="sep">/</span> CIS <span class="sep">/</span> W.P. Carey, ASU
+        </div>
+        <div class="bio">
+          <p>
+            Hi — I&rsquo;m Weber. I study <em>LLM post-training</em>, mostly where it bumps into digital platforms and agentic workflows. I like problems where &ldquo;the math&rdquo; and &ldquo;what the platform actually wants&rdquo; disagree.
+          </p>
+          <p>
+            Second year of a PhD. Previously Tongji (MIS, via a detour through mechanical engineering); briefly a finance intern pretending to understand generative AI before it was cool.
+          </p>
+        </div>
+      </div>
+      <div class="portrait-col">
+        <div class="portrait">
+          <img src="assets/profile-placeholder.svg" alt="Portrait of Weibo Li">
+        </div>
+        <div class="quick-facts">
+          <div><span class="k">loc&nbsp;&nbsp;</span> Tempe, AZ</div>
+          <div><span class="k">prog&nbsp;</span> Y2 / ~5</div>
+          <div><span class="k">advr&nbsp;</span> TBD</div>
+          <div><span class="k">open&nbsp;</span> collab, chat</div>
+          <div><span class="k">tz&nbsp;&nbsp;&nbsp;</span> MST (no DST)</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-                    <div class="contact-links">
-                        <a href="mailto:weiboli@asu.edu">Email</a>
-                        <a href="https://github.com/Weber-LiWb">GitHub</a>
-                        <a href="http://www.linkedin.com/in/weibo-weber">LinkedIn</a>
-                        <a href="https://search.asu.edu/profile/5073811">ASU Profile</a>
-                        <a href="assets/cv.pdf" target="_blank" rel="noopener">CV (PDF)</a>
-                    </div>
-                </div>
-                <!-- Replace with your actual photo -->
-                <img src="assets/profile-placeholder.svg" alt="Profile photo of Weibo Li" class="hero-image">
-            </section>
+  <!-- /NOW -->
+  <section class="sec" id="now">
+    <div class="sec-title">
+      <span class="num">01</span>
+      <h2>Now</h2>
+      <span class="meta">updated weekly · ish</span>
+    </div>
+    <div class="now-card">
+      <ul>
+        <li>Reading my way through Tokugawa Japan and early-modern Europe (Renaissance → Industrial Revolution) in parallel. They keep rhyming.</li>
+        <li>Running a post-training experiment on agent policies that optimize for platform-level outcomes instead of per-turn reward.</li>
+        <li>Plotting a road trip to SXSW next spring; rehearsing the case for a 2027 trip to Cannes / Venice / Berlinale.</li>
+        <li>Learning one new cocktail a week. Currently stuck on a negroni variation that refuses to come together.</li>
+      </ul>
+      <div class="stamp">// /now pages inspired by <a href="https://nownownow.com" rel="noopener">nownownow.com</a>. updated apr 17, 2026.</div>
+    </div>
+  </section>
 
-            <section id="news">
-                <h2>News</h2>
-                <div class="news-item">
-                    <span class="news-date">Nov 2025</span>
-                    <span class="news-content">Launched my new personal website!</span>
-                </div>
-                <div class="news-item">
-                    <span class="news-date">Oct 2025</span>
-                    <span class="news-content">Paper accepted at [Conference Name].</span>
-                </div>
-            </section>
-
-            <section id="stats">
-                <h2>Visitors</h2>
-                <p>Visitor map will appear here once configured.</p>
-                <!-- Paste your MapMyVisitors code here -->
-                <div id="map-container" class="map-container">
-                    <a href="https://mapmyvisitors.com/web/1bxxx" title="Visit tracker"><img
-                            src="//mapmyvisitors.com/map.png?d=YOUR_ID&cl=ffffff"
-                            alt="Visitor map showing website visitors by location" /></a>
-                </div>
-            </section>
-        </main>
-
-        <footer>
-            <p>&copy; 2026 Weibo Li.</p>
-        </footer>
+  <!-- RESEARCH -->
+  <section class="sec" id="research">
+    <div class="sec-title">
+      <span class="num">02</span>
+      <h2>Research</h2>
+      <span class="meta">6 projects · by theme</span>
     </div>
 
-    <button class="back-to-top" aria-label="Back to top">&uarr;</button>
-    <script src="js/main.js"></script>
-</body>
+    <div class="research-group">
+      <h3>Aligning LLMs to platform economics</h3>
+      <div class="subhead">Theme 01 · ongoing</div>
+      <div class="paper active">
+        <div class="paper-title">Post-training agents for platform-level objectives</div>
+        <div class="paper-desc">
+          Most post-training optimizes proximal signals — helpfulness, refusal, single-turn preference. What happens when the objective we actually care about is retention, welfare, or market efficiency? Exploring preference-based fine-tuning as a bridge.
+        </div>
+        <span class="paper-tag">post-training · platforms · in progress</span>
+      </div>
+      <div class="paper active">
+        <div class="paper-title">Reward shaping for agentic workflows</div>
+        <div class="paper-desc">
+          Which post-training signals actually transfer to multi-step tool use and delegation? Early evidence that naive preference data is worse than useless for agents.
+        </div>
+        <span class="paper-tag">agents · draft</span>
+      </div>
+    </div>
 
+    <div class="research-group">
+      <h3>Shared mobility &amp; simulation</h3>
+      <div class="subhead">Theme 02 · undergraduate archive</div>
+      <div class="paper">
+        <div class="paper-title">Evaluating ride-sharing matching strategies</div>
+        <div class="paper-desc">Systematic simulation of how matching policies shape user satisfaction and fleet efficiency.</div>
+        <span class="paper-tag">2023 · sim · w/ Prof. Xiaolei Wang</span>
+      </div>
+      <div class="paper">
+        <div class="paper-title">A prediction + simulation experimental framework</div>
+        <div class="paper-desc">Fuses predictive modeling with simulation to improve both accuracy and operational applicability for ride-sharing.</div>
+        <span class="paper-tag">2022 · ml + sim</span>
+      </div>
+    </div>
+
+    <div class="research-group">
+      <h3>Learning systems, odds &amp; ends</h3>
+      <div class="subhead">Theme 03 · undergraduate archive</div>
+      <div class="paper">
+        <div class="paper-title">Deep-learning detection of small orbital remnants</div>
+        <div class="paper-desc">YOLOv3-based autonomous patrol system, targeting sub-10×10-pixel debris directly on image.</div>
+        <span class="paper-tag">2022 · cv · systems</span>
+      </div>
+      <div class="paper">
+        <div class="paper-title">Meta-learning + hyperparameter optimization</div>
+        <div class="paper-desc">Double-layer programming formulation; verified that approximate-gradient methods sharply reduce compute cost.</div>
+        <span class="paper-tag">2021 · meta-learning</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CB / commonplace quote -->
+  <blockquote class="cb">
+    &ldquo;The platform is a system of incentives dressed up as a product; the model is a set of habits dressed up as a mind. Most of what I work on lives in the seam between these two costumes.&rdquo;
+    <cite>— from a notebook, spring 2026</cite>
+  </blockquote>
+
+  <!-- CV -->
+  <section class="sec" id="cv">
+    <div class="sec-title">
+      <span class="num">03</span>
+      <h2>Education &amp; Experience</h2>
+      <span class="meta"><a href="assets/cv.pdf">cv.pdf ↓</a></span>
+    </div>
+    <div class="cv-list">
+      <div class="cv-row">
+        <div class="when">2024 — now</div>
+        <div>
+          <strong>Arizona State University</strong>
+          <div class="sub">PhD, Business Admin (CIS) · W.P. Carey</div>
+        </div>
+      </div>
+      <div class="cv-row">
+        <div class="when">2018 — 2023</div>
+        <div>
+          <strong>Tongji University, Shanghai</strong>
+          <div class="sub">B.Sc. Management (MIS)</div>
+          <div class="note">Transferred from Mechanical Engineering in 2020. Worked with Prof. Xiaofeng Ma (blockchain in finance) and Prof. Xiaolei Wang (shared mobility).</div>
+        </div>
+      </div>
+      <div class="cv-row">
+        <div class="when">2023.2 — 6</div>
+        <div>
+          <strong>MM Capital</strong>
+          <div class="sub">Investment Analyst Intern · generative AI</div>
+        </div>
+      </div>
+      <div class="cv-row">
+        <div class="when">2022.8 — 9</div>
+        <div>
+          <strong>Huatai Securities, Research Institute</strong>
+          <div class="sub">Analyst Intern · Financial Engineering</div>
+        </div>
+      </div>
+      <div class="cv-row">
+        <div class="when">2022.2 — 7</div>
+        <div>
+          <strong>BCG China</strong>
+          <div class="sub">Part-time Assistant</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFF-DUTY / lists -->
+  <section class="sec" id="off">
+    <div class="sec-title">
+      <span class="num">04</span>
+      <h2>Off-duty</h2>
+      <span class="meta">catalogs &amp; lists</span>
+    </div>
+
+    <div class="off-grid">
+      <div class="list-block">
+        <h4>Currently reading</h4>
+        <ul>
+          <li><span class="bullet hot">▸</span> Histories of Tokugawa &amp; Meiji Japan</li>
+          <li><span class="bullet hot">▸</span> Early-modern Europe: Renaissance → Industrial Rev.</li>
+          <li><span class="bullet">·</span> A biography or two, always</li>
+        </ul>
+        <div class="note-inline">// mostly history, politics, biography. next: something on the Hanseatic League.</div>
+      </div>
+
+      <div class="list-block">
+        <h4>Sound</h4>
+        <ul>
+          <li><span class="bullet">·</span> Jazz — the whole shelf</li>
+          <li><span class="bullet">·</span> Electronic rock</li>
+          <li><span class="bullet">·</span> Brit-pop, unrepentant</li>
+        </ul>
+      </div>
+
+      <div class="list-block">
+        <h4>Cities I keep returning to</h4>
+        <ul>
+          <li><span class="bullet">◆</span> LA — favorite US city, no contest</li>
+          <li><span class="bullet">·</span> Paris / Rome / Barcelona — can&rsquo;t decide. each wins on different days.</li>
+        </ul>
+        <div class="note-inline">// plan: two laps around the world. first as a backpacker, second (post-retirement) staying at the one weird hotel per city.</div>
+      </div>
+
+      <div class="list-block">
+        <h4>Other interests</h4>
+        <ul>
+          <li><span class="bullet">·</span> Photography — museums, street, light</li>
+          <li><span class="bullet">·</span> Cinema — dream: Cannes / Venice / Berlinale in person</li>
+          <li><span class="bullet">·</span> Near-term dream: a SXSW badge</li>
+          <li><span class="bullet">·</span> Coffee &amp; cocktails — the slow kind of craft</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHANGELOG -->
+  <section class="sec" id="log">
+    <div class="sec-title">
+      <span class="num">05</span>
+      <h2>Changelog</h2>
+      <span class="meta">recent pushes</span>
+    </div>
+    <div class="changelog">
+      <div class="entry">
+        <div class="date">2026.04.17</div>
+        <div class="what"><span class="tag ship">ship</span> Rewrote the site. Gave it some personality. Kept my CV on it, in case you&rsquo;re here for that.</div>
+      </div>
+      <div class="entry">
+        <div class="date">2026.03</div>
+        <div class="what"><span class="tag">draft</span> First pass on &ldquo;Reward shaping for agentic workflows&rdquo; — too many footnotes, not enough plot.</div>
+      </div>
+      <div class="entry">
+        <div class="date">2026.02</div>
+        <div class="what"><span class="tag">read</span> Finished a survey of Meiji reforms. Convinced the period is underrated by everyone who isn&rsquo;t Japanese.</div>
+      </div>
+      <div class="entry">
+        <div class="date">2026.01</div>
+        <div class="what"><span class="tag">life</span> Moved into a new place in Tempe with better light. The plants seem happier.</div>
+      </div>
+      <div class="entry">
+        <div class="date">2025.11</div>
+        <div class="what"><span class="tag">launch</span> Launched v1 of this site. It was ok. This is v2.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / SIGN-OFF -->
+  <div class="sign-off" id="contact">
+<pre class="ascii-sig">  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+   ✉   let's talk  ·  weiboli@asu.edu
+  ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
+</pre>
+    <div class="sig-text">
+      I&rsquo;m happy to meet briefly with folks interested in research, collaborations, or PhD life — please include a short note about what you&rsquo;d like to discuss. Best reached at <a href="mailto:weiboli@asu.edu">weiboli@asu.edu</a>.
+    </div>
+    <div class="links">
+      <a href="mailto:weiboli@asu.edu">email</a>
+      <a href="https://github.com/Weber-LiWb" rel="noopener">github</a>
+      <a href="https://www.linkedin.com/in/weibo-weber" rel="noopener">linkedin</a>
+      <a href="https://scholar.google.com/" rel="noopener">scholar</a>
+      <a href="https://search.asu.edu/profile/5073811" rel="noopener">asu profile</a>
+      <a href="assets/cv.pdf">cv.pdf</a>
+    </div>
+  </div>
+
+  <footer class="tail">
+    <span>© 2026 weibo li · built by hand, served from ~/</span>
+    <span>v2.0 · apr 17, 2026</span>
+  </footer>
+
+</div>
+
+<script src="js/main.js"></script>
+</body>
 </html>
