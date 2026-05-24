@@ -222,6 +222,37 @@ h1.name .zh {
   color: var(--ink-3);
 }
 
+
+.status-pill {
+  display: inline-block;
+  padding: 1px 7px;
+  border: 1px dashed var(--rule);
+  border-radius: 999px;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  background: var(--paper);
+}
+
+
+.status-pill.synced {
+  border-style: solid;
+  color: var(--accent);
+  border-color: color-mix(in oklab, var(--accent) 35%, var(--rule));
+}
+
+.status-pill.placeholder { color: var(--ink-3); }
+
+.paper-meta {
+  display: grid;
+  gap: 2px;
+  margin: 8px 0 4px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--ink-3);
+}
+
 /* ─── /now block ─── */
 .now-card {
   background: var(--paper);
@@ -491,4 +522,9 @@ footer.tail {
   .portrait-col { order: -1; max-width: 180px; }
   .off-grid { grid-template-columns: 1fr; }
   .changelog .entry { grid-template-columns: 72px 1fr; gap: 10px; }
+}
+
+
+@media (max-width: 640px) {
+  .quick-facts { line-height: 1.9; font-size: 11.5px; }
 }
