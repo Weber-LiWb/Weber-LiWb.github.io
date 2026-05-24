@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="white">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,6 @@
   <meta property="og:description" content="PhD student at W.P. Carey, ASU. LLM post-training, digital platforms, agentic workflows.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://weber-liwb.github.io/">
-  <meta property="og:image" content="https://weber-liwb.github.io/assets/profile-placeholder.svg">
   <link rel="canonical" href="https://weber-liwb.github.io/">
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
   <title>Weibo Li — ~/weber</title>
@@ -20,29 +19,17 @@
 <body>
 <div class="page">
 
-  <!-- ASCII logo -->
-  <pre class="ascii"> __          __  _
- \ \        / / | |
-  \ \  /\  / /__| |__   ___ _ __       <span class="hi">weibo · 李炜博</span>
-   \ \/  \/ / _ \ '_ \ / _ \ '__|      phd student · cis · asu
-    \  /\  /  __/ |_) |  __/ |         currently : tempe, az ● online
-     \/  \/ \___|_.__/ \___|_|
-</pre>
-
   <!-- Top bar -->
   <nav class="topbar" aria-label="Section navigation">
     <div class="left">
       <a href="#about">~/about</a>
-      <a href="#now">/now</a>
       <a href="#research">/research</a>
       <a href="#cv">/cv</a>
-      <a href="#off">/off-duty</a>
-      <a href="#log">/changelog</a>
+      <a href="#todo">/to-do</a>
       <a href="#contact">/contact</a>
     </div>
     <div class="right">
       <span><span class="dot">●</span> last pushed may 24</span>
-      <button type="button" class="theme-toggle" aria-label="Toggle theme">[cool]</button>
     </div>
   </nav>
 
@@ -68,13 +55,9 @@
         </div>
       </div>
       <div class="portrait-col">
-        <div class="portrait">
-          <img src="assets/profile-placeholder.svg" alt="Portrait of Weibo Li">
-        </div>
         <div class="quick-facts">
           <div><span class="k">loc&nbsp;&nbsp;</span> Tempe, AZ</div>
           <div><span class="k">prog&nbsp;</span> 2nd year PhD</div>
-          <div><span class="k">advr&nbsp;</span> TBD (placeholder)</div>
           <div><span class="k">open&nbsp;</span> research collab, chat</div>
           <div><span class="k">tz&nbsp;&nbsp;&nbsp;</span> MST (no DST)</div>
         </div>
@@ -82,25 +65,10 @@
     </div>
   </section>
 
-  <!-- /NOW -->
-  <section class="sec" id="now" data-content-state="placeholder" data-placeholder="google-site-missing">
-    <div class="sec-title">
-      <span class="num">01</span>
-      <h2>Now</h2>
-      <span class="meta"><span class="status-pill placeholder">placeholder</span></span>
-    </div>
-    <div class="now-card">
-      <ul>
-        <li>Placeholder: content will be synced from Google Site.</li>
-      </ul>
-      <div class="stamp">// placeholder: this section is not available on the Google Site reference.</div>
-    </div>
-  </section>
-
   <!-- RESEARCH -->
   <section class="sec" id="research" data-content-state="synced">
     <div class="sec-title">
-      <span class="num">02</span>
+      <span class="num">01</span>
       <h2>Research</h2>
       <span class="meta"><span class="status-pill synced">synced</span></span>
     </div>
@@ -110,13 +78,8 @@
       <div class="subhead">Theme 01 · ongoing</div>
       <div class="paper active">
         <div class="paper-title">Ongoing LLM post-training project</div>
-        <div class="paper-desc">Placeholder: details will be published after the current draft is finalized.</div>
-        <div class="paper-meta">
-          <span><strong>Status:</strong> Drafting (placeholder)</span>
-          <span><strong>Venue:</strong> TBD (placeholder)</span>
-          <span><strong>Collaborators:</strong> TBD (placeholder)</span>
-        </div>
-        <span class="paper-tag">placeholder</span>
+        <div class="paper-desc">Current work on post-training methods for platform and agentic-workflow settings. Public details will be added after the draft is ready.</div>
+        <span class="paper-tag">drafting</span>
       </div>
     </div>
 
@@ -151,16 +114,10 @@
     </div>
   </section>
 
-  <!-- CB / commonplace quote -->
-  <blockquote class="cb">
-    &ldquo;Placeholder quote.&rdquo;
-    <cite>— placeholder</cite>
-  </blockquote>
-
   <!-- CV -->
   <section class="sec" id="cv" data-content-state="synced">
     <div class="sec-title">
-      <span class="num">03</span>
+      <span class="num">02</span>
       <h2>Education &amp; Experience</h2>
       <span class="meta"><span class="status-pill synced">synced</span></span>
     </div>
@@ -204,33 +161,38 @@
     </div>
   </section>
 
-  <!-- OFF-DUTY / lists -->
-  <section class="sec" id="off" data-content-state="placeholder" data-placeholder="google-site-missing">
+  <!-- TO-DO -->
+  <section class="sec" id="todo">
     <div class="sec-title">
-      <span class="num">04</span>
-      <h2>Off-duty</h2>
-      <span class="meta"><span class="status-pill placeholder">placeholder</span></span>
+      <span class="num">03</span>
+      <h2>To-do</h2>
+      <span class="meta">content queue</span>
     </div>
 
-    <div class="off-grid" aria-label="placeholder content">
-      <div class="list-block">
-        <h4>Placeholder</h4>
-        <ul><li><span class="bullet">·</span> Placeholder: content will be synced from Google Site.</li></ul>
+    <div class="todo-card">
+      <div class="todo-row">
+        <div class="todo-key">profile</div>
+        <div>Replace the temporary portrait asset and update the Open Graph image.</div>
       </div>
-    </div>
-  </section>
-
-  <!-- CHANGELOG -->
-  <section class="sec" id="log" data-content-state="placeholder" data-placeholder="google-site-missing">
-    <div class="sec-title">
-      <span class="num">05</span>
-      <h2>Changelog</h2>
-      <span class="meta"><span class="status-pill placeholder">placeholder</span></span>
-    </div>
-    <div class="changelog">
-      <div class="entry">
-        <div class="date">2026.05.24</div>
-        <div class="what"><span class="tag ship">update</span> Synced core bio/research/experience text with Google Site; kept non-referenced sections as explicit placeholders.</div>
+      <div class="todo-row">
+        <div class="todo-key">bio</div>
+        <div>Confirm whether advisor information belongs in the quick facts.</div>
+      </div>
+      <div class="todo-row">
+        <div class="todo-key">now</div>
+        <div>Add a current-work snapshot or omit the section entirely.</div>
+      </div>
+      <div class="todo-row">
+        <div class="todo-key">research</div>
+        <div>Add the finalized title, status, venue target, and collaborator details for the ongoing LLM project.</div>
+      </div>
+      <div class="todo-row">
+        <div class="todo-key">off-duty</div>
+        <div>Provide personal interests, reading, photography, or remove that content lane.</div>
+      </div>
+      <div class="todo-row">
+        <div class="todo-key">links</div>
+        <div>Add the real CV file, favicon, and Scholar profile URL when available.</div>
       </div>
     </div>
   </section>
@@ -261,6 +223,5 @@
 
 </div>
 
-<script src="js/main.js"></script>
 </body>
 </html>
