@@ -1,2 +1,3 @@
 User-agent: *
 Disallow: /assets/profile.jpg
+Sitemap: https://liweibo.io/sitemap.xml

@@ -4,13 +4,13 @@
   --paper: #ffffff;
   --ink: #171511;
   --ink-2: #484a4d;
-  --ink-3: #777d84;
+  --ink-3: #6b7178;
   --rule: #dedede;
   --rule-strong: #9c9c9a;
-  --link: #4f7f9f;
+  --link: #437997;
   --link-hover: #2f617e;
-  --accent: #6f9fbd;
-  --accent-strong: #4f7f9f;
+  --accent: #437997;
+  --accent-strong: #3d7492;
   --accent-soft: #eef6fb;
   --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
   --serif: 'Newsreader', 'Iowan Old Style', Georgia, serif;
@@ -35,6 +35,10 @@ a {
   transition: color .15s, border-color .15s;
 }
 a:hover { color: var(--link-hover); border-bottom-color: var(--link-hover); }
+a:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--accent) 65%, transparent);
+  outline-offset: 3px;
+}
 
 .page { max-width: 860px; margin: 0 auto; padding: 56px 40px 120px; }
 
@@ -120,9 +124,7 @@ h1.name .zh {
 .portrait {
   display: block;
   width: 100%;
-  aspect-ratio: 2 / 3;
-  object-fit: cover;
-  object-position: center top;
+  height: auto;
   border: 1px solid var(--rule);
   border-radius: 3px;
   background: var(--paper);
@@ -172,26 +174,6 @@ h1.name .zh {
   color: var(--ink-3);
 }
 
-
-.status-pill {
-  display: inline-block;
-  padding: 1px 7px;
-  border: 1px dashed var(--rule);
-  border-radius: 999px;
-  font-size: 10px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  background: var(--paper);
-}
-
-
-.status-pill.synced {
-  border-style: solid;
-  color: var(--accent-strong);
-  border-color: color-mix(in oklab, var(--accent) 45%, var(--rule));
-  background: var(--accent-soft);
-}
 
 /* ─── News timeline ─── */
 .news-row {
@@ -274,34 +256,6 @@ h1.name .zh {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-top: 6px;
-}
-
-/* ─── To-do queue ─── */
-.todo-card {
-  background: var(--paper);
-  border: 1px solid var(--rule);
-  border-radius: 3px;
-}
-.todo-row {
-  display: grid;
-  grid-template-columns: 112px 1fr;
-  gap: 20px;
-  padding: 15px 18px;
-  border-bottom: 1px dashed var(--rule);
-  align-items: baseline;
-}
-.todo-row:last-child { border-bottom: none; }
-.todo-key {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--accent-strong);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-.todo-row div:last-child {
-  color: var(--ink-2);
-  font-size: 15.5px;
-  line-height: 1.55;
 }
 
 /* ─── CV table ─── */
@@ -423,11 +377,16 @@ footer.tail {
   .hero-grid { grid-template-columns: 1fr; }
   .portrait-col { max-width: 280px; padding-top: 0; }
   .news-row { grid-template-columns: 1fr; gap: 4px; }
+  .cv-row { grid-template-columns: 1fr; gap: 4px; }
   .off-grid { grid-template-columns: 1fr; }
-  .todo-row { grid-template-columns: 1fr; gap: 4px; }
 }
 
 
 @media (max-width: 640px) {
   .quick-facts { line-height: 1.9; font-size: 11.5px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .topbar .right .dot { animation: none; }
 }
