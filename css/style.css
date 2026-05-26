@@ -112,7 +112,22 @@ h1.name .zh {
   gap: 54px;
   align-items: start;
 }
-.portrait-col { padding-top: 18px; }
+.portrait-col {
+  width: 100%;
+  padding-top: 18px;
+}
+
+.portrait {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--paper);
+  margin-bottom: 14px;
+}
 
 .quick-facts {
   font-family: var(--mono);
@@ -176,6 +191,34 @@ h1.name .zh {
   color: var(--accent-strong);
   border-color: color-mix(in oklab, var(--accent) 45%, var(--rule));
   background: var(--accent-soft);
+}
+
+/* ─── News timeline ─── */
+.news-row {
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  gap: 20px;
+  padding: 14px 0;
+  border-top: 1px dashed var(--rule);
+  align-items: baseline;
+}
+.news-list .news-row:last-child { border-bottom: 1px dashed var(--rule); }
+.news-row .when {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--ink-3);
+}
+.news-row strong {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 16.5px;
+  display: block;
+  margin-bottom: 1px;
+}
+.news-row .sub {
+  font-size: 14.5px;
+  color: var(--ink-2);
+  font-style: italic;
 }
 
 /* ─── Research · notebook style ─── */
@@ -286,6 +329,49 @@ h1.name .zh {
 .cv-row .sub { font-size: 14.5px; color: var(--ink-2); font-style: italic; }
 .cv-row .note { font-size: 13px; color: var(--ink-3); margin-top: 3px; }
 
+/* ─── Off-duty · curated lists side by side ─── */
+.off-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 40px;
+  margin-top: 10px;
+}
+.list-block h4 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 8px;
+}
+.list-block ul {
+  list-style: none;
+  padding: 0;
+  font-size: 14.5px;
+  line-height: 1.65;
+}
+.list-block li {
+  padding: 3px 0;
+  color: var(--ink);
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+.list-block li .bullet {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ink-3);
+  flex-shrink: 0;
+}
+.list-block li .bullet.hot { color: var(--accent-strong); }
+.list-block .note-inline {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--ink-3);
+  margin-top: 10px;
+  font-style: italic;
+}
+
 /* ─── Contact footer ─── */
 .sign-off {
   margin-top: 80px;
@@ -335,7 +421,9 @@ footer.tail {
   h1.name .zh { font-size: 24px; }
   .bio p { font-size: 16.5px; }
   .hero-grid { grid-template-columns: 1fr; }
-  .portrait-col { max-width: none; padding-top: 0; }
+  .portrait-col { max-width: 280px; padding-top: 0; }
+  .news-row { grid-template-columns: 1fr; gap: 4px; }
+  .off-grid { grid-template-columns: 1fr; }
   .todo-row { grid-template-columns: 1fr; gap: 4px; }
 }
 
