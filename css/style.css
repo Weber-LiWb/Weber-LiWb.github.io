@@ -83,17 +83,19 @@ a:focus-visible {
 
 h1.name {
   font-family: var(--sans-display);
-  font-weight: 500;
+  /* NHG Display Pro 25 Thin. Tracking stays close to normal — thin strokes
+     at this size collapse into each other if the letters are pulled tight. */
+  font-weight: 200;
   font-size: 54px;
   line-height: 1.02;
-  letter-spacing: -0.022em;
+  letter-spacing: -0.012em;
   margin-bottom: 6px;
 }
 h1.name .zh {
   display: block;
   font-size: 30px;
   color: var(--ink-2);
-  font-weight: 400;
+  font-weight: 300;
   font-style: italic;
   margin-top: 4px;
 }
