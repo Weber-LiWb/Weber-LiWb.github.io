@@ -16,8 +16,13 @@
   /* Neue Haas Grotesk via Adobe Fonts (see the typekit <link> in index.html).
      Text = body copy and small headings; Display = the 30px+ hero lockup.
      Inter stays first in the fallback chain so the page is unchanged if the
-     kit fails to load or the license lapses. */
-  --sans: 'neue-haas-grotesk-text', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+     kit fails to load or the license lapses.
+     NHG carries no CJK, so PingFang picks up 李炜博 and friends. It sits ahead
+     of the system faces to keep the Chinese identical across platforms rather
+     than leaving it to each OS's own fallback cascade — the Latin faces before
+     it are complete, so Latin never reaches it. */
+  --cjk: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei';
+  --sans: 'neue-haas-grotesk-text', 'Inter', var(--cjk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --sans-display: 'neue-haas-grotesk-display', var(--sans);
 }
 
@@ -97,6 +102,10 @@ h1.name .zh {
   color: var(--ink-2);
   font-weight: 300;
   font-style: italic;
+  /* PingFang has no italic. Without this the browser fakes one by shearing
+     the glyphs, which is simply wrong for Chinese — 李炜博 stays upright and
+     only the Latin, which has a real 26 Thin Italic, actually slants. */
+  font-synthesis-style: none;
   margin-top: 4px;
 }
 
@@ -116,7 +125,9 @@ h1.name .zh {
   max-width: 60ch;
 }
 .bio p + p { color: var(--ink-2); font-size: 16.5px; }
-.bio em { font-style: italic; color: var(--accent-strong); font-weight: 500; }
+/* No 500 here: NHG Text ships 55 Roman and 75 Bold, so CSS weight 500 just
+   resolves back down to 400. The accent colour carries the emphasis. */
+.bio em { font-style: italic; color: var(--accent-strong); }
 
 /* ─── Hero side card (portrait + quick facts) ─── */
 .hero-grid {
