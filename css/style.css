@@ -13,7 +13,12 @@
   --accent-strong: #3d7492;
   --accent-soft: #eef6fb;
   --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
-  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Neue Haas Grotesk via Adobe Fonts (see the typekit <link> in index.html).
+     Text = body copy and small headings; Display = the 30px+ hero lockup.
+     Inter stays first in the fallback chain so the page is unchanged if the
+     kit fails to load or the license lapses. */
+  --sans: 'neue-haas-grotesk-text', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --sans-display: 'neue-haas-grotesk-display', var(--sans);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -23,7 +28,9 @@ body {
   font-family: var(--sans);
   background: var(--cream);
   color: var(--ink);
-  font-size: 17px;
+  /* NHG Text has a smaller x-height than Inter — half a pixel back to keep
+     the optical size where it was. */
+  font-size: 17.5px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
@@ -75,11 +82,11 @@ a:focus-visible {
 .prompt-line .c { color: var(--ink); }
 
 h1.name {
-  font-family: var(--sans);
+  font-family: var(--sans-display);
   font-weight: 500;
   font-size: 54px;
   line-height: 1.02;
-  letter-spacing: -0.018em;
+  letter-spacing: -0.022em;
   margin-bottom: 6px;
 }
 h1.name .zh {
