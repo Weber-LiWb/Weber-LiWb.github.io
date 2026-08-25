@@ -1,6 +1,6 @@
 :root {
-  --cream: #ffffff;
-  --cream-2: #f7f7f7;
+  --cream: #fff;
+  --cream-2: #fff;
   --paper: #ffffff;
   --ink: #171511;
   --ink-2: #484a4d;
@@ -112,8 +112,8 @@ h1.name .zh {
 /* ─── Hero side card (portrait + quick facts) ─── */
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 220px;
-  gap: 54px;
+  grid-template-columns: minmax(0, 1fr) 180px;
+  gap: 48px;
   align-items: start;
 }
 .portrait-col {
@@ -143,6 +143,21 @@ h1.name .zh {
 }
 .quick-facts div { padding: 4px 0; }
 .quick-facts .k { color: var(--ink-3); }
+.quick-facts .card-links {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--rule);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+}
+.quick-facts .card-links a {
+  border: none;
+  color: var(--link);
+  font-size: 11px;
+}
+.quick-facts .card-links a:hover { color: var(--link-hover); }
+.quick-facts .card-links a::before { content: '» '; color: var(--ink-3); }
 
 /* ─── Section heading ─── */
 .sec { margin-top: 84px; }
@@ -348,14 +363,7 @@ h1.name .zh {
   color: var(--ink);
 }
 .sign-off .sig-text a { color: var(--link); border-bottom: 1px solid color-mix(in oklab, var(--link) 55%, var(--rule)); }
-.sign-off .links {
-  display: flex; flex-wrap: wrap; gap: 18px;
-  font-family: var(--mono);
-  font-size: 12px;
-}
-.sign-off .links a { border: none; color: var(--link); }
-.sign-off .links a:hover { color: var(--link-hover); }
-.sign-off .links a::before { content: '»  '; color: var(--ink-3); }
+/* links moved to portrait card */
 
 footer.tail {
   margin-top: 48px;
@@ -375,7 +383,7 @@ footer.tail {
   h1.name .zh { font-size: 24px; }
   .bio p { font-size: 16.5px; }
   .hero-grid { grid-template-columns: 1fr; }
-  .portrait-col { max-width: 280px; padding-top: 0; }
+  .portrait-col { max-width: 220px; padding-top: 0; }
   .news-row { grid-template-columns: 1fr; gap: 4px; }
   .cv-row { grid-template-columns: 1fr; gap: 4px; }
   .off-grid { grid-template-columns: 1fr; }
