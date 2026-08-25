@@ -375,7 +375,6 @@ h1.name {
 
 /* ─── Snapshot strip ─── */
 .snapshot-strip { margin-top: 40px; }
-.snapshot-strip .prompt-line { margin-bottom: 14px; }
 .snapshots {
   display: flex;
   gap: 18px;
@@ -391,8 +390,7 @@ h1.name {
 .snap img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  height: auto;
   border: 1px solid var(--rule);
   border-radius: 3px;
   background: var(--cream-2);
