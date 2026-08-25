@@ -397,13 +397,7 @@ h1.name {
   border-radius: 3px;
   background: var(--cream-2);
 }
-.snap figcaption {
-  font-family: var(--mono);
-  font-size: 10px;
-  color: var(--ink-3);
-  margin-top: 6px;
-  letter-spacing: 0.02em;
-}
+
 
 /* ─── Contact footer ─── */
 .sign-off {
