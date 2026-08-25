@@ -94,19 +94,9 @@ h1.name {
   font-size: 54px;
   line-height: 1.02;
   letter-spacing: -0.012em;
-  margin-bottom: 6px;
-}
-h1.name .zh {
-  display: block;
-  font-size: 30px;
-  color: var(--ink-2);
-  font-weight: 300;
-  font-style: italic;
-  /* PingFang has no italic. Without this the browser fakes one by shearing
-     the glyphs, which is simply wrong for Chinese — 李炜博 stays upright and
-     only the Latin, which has a real 26 Thin Italic, actually slants. */
-  font-synthesis-style: none;
-  margin-top: 4px;
+  /* Was 6px when a second line sat under the name; the name stands alone now
+     and wants a little more air before the role line. */
+  margin-bottom: 10px;
 }
 
 .role {
@@ -227,8 +217,10 @@ h1.name .zh {
 .research-group { margin-bottom: 36px; }
 .research-group h3 {
   font-family: var(--sans);
-  font-style: italic;
-  font-weight: 500;
+  /* Upright, and 600 rather than 500: with only 55 Roman and 75 Bold in the
+     kit, CSS 500 resolves back down to Roman and the heading would sit at
+     body weight. 600 reaches the real Bold face. */
+  font-weight: 600;
   font-size: 20px;
   color: var(--ink);
   margin-bottom: 4px;
@@ -392,7 +384,6 @@ footer.tail {
 @media (max-width: 640px) {
   .page { padding: 28px 22px 80px; }
   h1.name { font-size: 38px; }
-  h1.name .zh { font-size: 24px; }
   .bio p { font-size: 16.5px; }
   .hero-grid { grid-template-columns: 1fr; }
   .portrait-col { max-width: 280px; padding-top: 0; }
