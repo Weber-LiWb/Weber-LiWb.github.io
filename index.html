@@ -38,6 +38,7 @@
     </div>
     <div class="right">
       <span><span class="dot">●</span> updated aug 2026</span>
+      <button class="theme-toggle" aria-label="Toggle dark mode">[dark]</button>
     </div>
   </nav>
 
@@ -47,6 +48,7 @@
     <div class="hero-grid">
       <div>
         <h1 class="name">Weibo Li</h1>
+        <p class="statement">Post-training LLMs for digital platforms and agentic workflows.</p>
         <div class="role">
           PhD student <span class="sep">/</span> CIS <span class="sep">/</span> W.P. Carey, ASU
         </div>
@@ -66,6 +68,12 @@
           <div><span class="k">prog&nbsp;</span> 3rd year PhD</div>
           <div><span class="k">open&nbsp;</span> research collab, chat</div>
           <div><span class="k">tz&nbsp;&nbsp;&nbsp;</span> MST (no DST)</div>
+          <div class="card-links">
+            <a href="mailto:weiboli@asu.edu?subject=Research%20Inquiry%20from%20Personal%20Site">email</a>
+            <a href="https://www.linkedin.com/in/weibo-weber" rel="noopener">linkedin</a>
+            <a href="https://search.asu.edu/profile/5073811" rel="noopener">asu profile</a>
+            <a href="https://github.com/Weber-LiWb" rel="noopener">github</a>
+          </div>
         </div>
       </div>
     </div>
@@ -234,6 +242,27 @@
         </ul>
       </div>
     </div>
+
+    <div class="snapshot-strip">
+      <div class="prompt-line"><span class="p">weber@asu</span><span class="c">:~$</span> ls ~/snapshots/</div>
+      <div class="snapshots">
+        <figure class="snap">
+          <img src="photos/IMG_0344.jpg" alt="Museum skylight with colorful geometric glass" loading="lazy">
+        </figure>
+        <figure class="snap">
+          <img src="photos/IMG_2277.jpg" alt="Marble bust of Athena in a museum" loading="lazy">
+        </figure>
+        <figure class="snap">
+          <img src="photos/IMG_3380.jpg" alt="Monument Valley at sunset" loading="lazy">
+        </figure>
+        <figure class="snap">
+          <img src="photos/IMG_5055.jpg" alt="Beach sunset on the California coast" loading="lazy">
+        </figure>
+        <figure class="snap">
+          <img src="photos/IMG_5108.jpg" alt="Los Angeles skyline at night" loading="lazy">
+        </figure>
+      </div>
+    </div>
   </section>
 
   <!-- CONTACT / SIGN-OFF -->
@@ -245,12 +274,6 @@
     <div class="sig-text">
       I&rsquo;d be happy to meet briefly if you are interested in my research or have any questions. Please include enough information about the purpose of the meeting. Best reached at <a href="mailto:weiboli@asu.edu">weiboli@asu.edu</a>.
     </div>
-    <div class="links">
-      <a href="mailto:weiboli@asu.edu?subject=Research%20Inquiry%20from%20Personal%20Site">email</a>
-      <a href="https://www.linkedin.com/in/weibo-weber" rel="noopener">linkedin</a>
-      <a href="https://search.asu.edu/profile/5073811" rel="noopener">asu profile</a>
-      <a href="https://github.com/Weber-LiWb" rel="noopener">github</a>
-    </div>
   </div>
 
   <footer class="tail">
@@ -260,5 +283,26 @@
 
 </div>
 
+<script>
+(function () {
+  var t = document.querySelector('.theme-toggle');
+  if (localStorage.getItem('theme') === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    t.textContent = '[light]';
+  }
+  t.addEventListener('click', function () {
+    var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (dark) {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+      t.textContent = '[dark]';
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+      t.textContent = '[light]';
+    }
+  });
+})();
+</script>
 </body>
 </html>
