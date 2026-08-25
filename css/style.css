@@ -115,9 +115,7 @@ h1.name {
   max-width: 60ch;
 }
 .bio p + p { color: var(--ink-2); font-size: 16.5px; }
-/* No 500 here: NHG Text ships 55 Roman and 75 Bold, so CSS weight 500 just
-   resolves back down to 400. The accent colour carries the emphasis. */
-.bio em { font-style: italic; color: var(--accent-strong); }
+.bio em { font-style: italic; color: var(--accent-strong); font-weight: 500; }
 
 /* ─── Hero side card (portrait + quick facts) ─── */
 .hero-grid {
@@ -217,10 +215,9 @@ h1.name {
 .research-group { margin-bottom: 36px; }
 .research-group h3 {
   font-family: var(--sans);
-  /* Upright, and 600 rather than 500: with only 55 Roman and 75 Bold in the
-     kit, CSS 500 resolves back down to Roman and the heading would sit at
-     body weight. 600 reaches the real Bold face. */
-  font-weight: 600;
+  /* Upright since the italic came off. 500 lands on Text Pro 65 Medium — Bold
+     is more than a 20px subhead needs when the size already separates it. */
+  font-weight: 500;
   font-size: 20px;
   color: var(--ink);
   margin-bottom: 4px;
