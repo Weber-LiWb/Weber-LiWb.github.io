@@ -222,6 +222,19 @@ h1.name {
 
 
 /* ─── News timeline ─── */
+.news-group + .news-group { margin-top: 28px; }
+.news-label,
+.cv-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 8px;
+}
+.cv-label { margin-top: 28px; }
+.cv-label:first-of-type { margin-top: 0; }
 .news-row {
   display: grid;
   grid-template-columns: 112px 1fr;
@@ -305,6 +318,30 @@ h1.name {
   margin-top: 6px;
 }
 
+.research-group + .research-group { margin-top: 44px; }
+.paper-title a { color: var(--ink); border-bottom-color: var(--rule); }
+.paper-title a:hover { color: var(--link-hover); border-bottom-color: var(--link-hover); }
+.paper-authors {
+  font-size: 14.5px;
+  color: var(--ink-2);
+  line-height: 1.55;
+}
+.paper-authors b { color: var(--ink); font-weight: 600; }
+.paper-venue {
+  font-size: 14.5px;
+  color: var(--ink-2);
+  font-style: italic;
+}
+.paper-links {
+  display: flex;
+  gap: 14px;
+  margin-top: 6px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+}
+.paper-links a { border: none; }
+.paper-links a::before { content: '» '; color: var(--ink-3); }
+
 /* ─── CV table ─── */
 .cv-row {
   display: grid;
@@ -376,17 +413,12 @@ h1.name {
 /* ─── Snapshot strip ─── */
 .snapshot-strip { margin-top: 40px; }
 .snapshots {
-  display: flex;
-  gap: 18px;
-  overflow-x: auto;
-  padding-bottom: 10px;
-  scrollbar-width: thin;
-  scrollbar-color: var(--rule) transparent;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
 }
-.snap {
-  flex: 0 0 auto;
-  width: 156px;
-}
+.snap-link { display: block; border: none; }
+.snap-link:hover img { border-color: var(--rule-strong); }
 .snap img {
   display: block;
   width: 100%;
@@ -394,7 +426,39 @@ h1.name {
   border: 1px solid var(--rule);
   border-radius: 3px;
   background: var(--cream-2);
+  transition: border-color .15s;
 }
+
+/* ─── Lightbox ─── */
+.lightbox {
+  margin: auto;
+  padding: 0;
+  border: none;
+  background: transparent;
+  max-width: min(92vw, 800px);
+  max-height: 92vh;
+  overflow: visible;
+}
+.lightbox::backdrop { background: rgb(0 0 0 / .82); }
+.lightbox img {
+  display: block;
+  max-width: 100%;
+  max-height: 86vh;
+  width: auto;
+  height: auto;
+  border-radius: 3px;
+}
+.lightbox-close {
+  display: block;
+  margin: 0 0 8px auto;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: #ddd;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.lightbox-close:hover { color: #fff; }
 
 
 /* ─── Contact footer ─── */
@@ -435,12 +499,13 @@ footer.tail {
 
 /* ─── Dark mode ─── */
 :root[data-theme="dark"] {
+  color-scheme: dark;
   --cream: #161618;
   --cream-2: #161618;
   --paper: #1e1e20;
   --ink: #e4e4e8;
   --ink-2: #a0a0a8;
-  --ink-3: #727278;
+  --ink-3: #8a8a91;  /* ≥4.5:1 on both --cream and --paper */
   --rule: #2e2e32;
   --rule-strong: #3e3e44;
   --link: #6db3d8;
@@ -455,12 +520,31 @@ footer.tail {
   h1.name { font-size: 38px; }
   .bio p { font-size: 16.5px; }
   .hero-grid { grid-template-columns: 1fr; }
-  .portrait-col { max-width: 220px; padding-top: 0; }
+  .topbar { margin-bottom: 40px; }
+  .topbar .left { gap: 6px 16px; }
+  /* Portrait and card sit side by side so the first screen isn't one tall photo. */
+  .portrait-col {
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr);
+    gap: 14px;
+    align-items: start;
+    padding-top: 0;
+  }
+  .portrait { margin-bottom: 0; }
+  .quick-facts { padding: 12px 14px; }
   .news-row { grid-template-columns: 1fr; gap: 4px; }
   .cv-row { grid-template-columns: 1fr; gap: 4px; }
   .off-grid { grid-template-columns: 1fr; }
   .statement { font-size: 22px; }
-  .snap { width: 130px; }
+  .snapshots {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--rule) transparent;
+  }
+  .snap { flex: 0 0 130px; scroll-snap-align: start; }
 }
 
 

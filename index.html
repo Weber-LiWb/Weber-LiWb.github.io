@@ -4,17 +4,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Weibo Li (李炜博 · Weber) — PhD student in Computer Information Systems at Arizona State University. Research on LLM post-training, digital platforms, and agentic workflows.">
-  <meta property="og:title" content="Weibo Li — ~/weber">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:title" content="Weibo Li · PhD Student in Information Systems, ASU">
   <meta property="og:description" content="PhD student at W.P. Carey, ASU. LLM post-training, digital platforms, agentic workflows.">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="profile">
   <meta property="og:url" content="https://liweibo.io/">
+  <meta property="og:image" content="https://liweibo.io/assets/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Weibo Li · PhD Student in Information Systems, W.P. Carey School of Business, Arizona State University">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="robots" content="noimageindex, max-image-preview:none">
   <link rel="canonical" href="https://liweibo.io/">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <title>Weibo Li — ~/weber</title>
+  <title>Weibo Li · PhD Student in Information Systems, ASU</title>
+  <!-- Theme is set before first paint so dark-mode visitors never see a white
+       flash. An explicit choice in localStorage wins; otherwise follow the OS. -->
+  <script>
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('theme'); } catch (e) {}
+    var dark = saved ? saved === 'dark'
+      : !!(window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches);
+    if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+  })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Weibo Li",
+    "alternateName": ["李炜博", "Weber Li"],
+    "url": "https://liweibo.io/",
+    "email": "mailto:weiboli@asu.edu",
+    "jobTitle": "PhD Student, Computer Information Systems",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Arizona State University",
+      "department": { "@type": "Organization", "name": "W.P. Carey School of Business" }
+    },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Tongji University" },
+    "knowsAbout": ["LLM post-training", "Digital platforms", "Agentic workflows"],
+    "sameAs": [
+      "https://www.linkedin.com/in/weibo-weber",
+      "https://github.com/Weber-LiWb",
+      "https://search.asu.edu/profile/5073811"
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
   <!-- Neue Haas Grotesk, served from the Adobe Fonts web project. Display Pro
        25 Thin carries the hero; Text Pro 55/56/65/75 carries body copy. Inter
        remains the fallback in css/style.css if the kit ever stops loading. -->
@@ -28,17 +68,15 @@
   <!-- Top bar -->
   <nav class="topbar" aria-label="Section navigation">
     <div class="left">
-      <a href="#about">~/about</a>
       <a href="#news">/news</a>
       <a href="#research">/research</a>
-      <a href="#education">/education</a>
-      <a href="#experience">/experience</a>
+      <a href="#background">/background</a>
       <a href="#off">/off-duty</a>
       <a href="#contact">/contact</a>
     </div>
     <div class="right">
-      <span><span class="dot">●</span> updated aug 2026</span>
-      <button class="theme-toggle" aria-label="Toggle dark mode">[dark]</button>
+      <span class="updated" hidden><span class="dot">●</span> updated <span class="updated-date"></span></span>
+      <button class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false">[dark]</button>
     </div>
   </nav>
 
@@ -54,7 +92,7 @@
         </div>
         <div class="bio">
           <p>
-            Hi — I&rsquo;m Weibo Li (<span lang="zh">李炜博</span>), a third-year PhD student in Computer Information Systems at the <a href="https://wpcarey.asu.edu/" rel="noopener">W.P. Carey School of Business</a>, <a href="https://www.asu.edu/" rel="noopener">Arizona State University</a>. My research focuses on LLM post-training, specifically its applications in digital platforms and agentic workflows.
+            Hi — I&rsquo;m Weibo Li (<span lang="zh">李炜博</span>), a <span class="phd-year">third</span>-year PhD student in Computer Information Systems at the <a href="https://wpcarey.asu.edu/" rel="noopener">W.P. Carey School of Business</a>, <a href="https://www.asu.edu/" rel="noopener">Arizona State University</a>. My research focuses on LLM post-training, specifically its applications in digital platforms and agentic workflows.
           </p>
           <p>
             Prior to ASU, I earned my bachelor&rsquo;s degree from <a href="https://www.tongji.edu.cn/eng/" rel="noopener">Tongji University</a> in Shanghai.
@@ -65,8 +103,7 @@
         <img class="portrait" src="assets/profile.jpg" width="320" height="480" alt="Portrait of Weibo Li">
         <div class="quick-facts">
           <div><span class="k">loc&nbsp;&nbsp;</span> Tempe, AZ</div>
-          <div><span class="k">prog&nbsp;</span> 3rd year PhD</div>
-          <div><span class="k">open&nbsp;</span> research collab, chat</div>
+          <div><span class="k">open&nbsp;</span> collaboration</div>
           <div><span class="k">tz&nbsp;&nbsp;&nbsp;</span> MST (no DST)</div>
           <div class="card-links">
             <a href="mailto:weiboli@asu.edu?subject=Research%20Inquiry%20from%20Personal%20Site">email</a>
@@ -80,6 +117,9 @@
   </section>
 
   <!-- NEWS -->
+  <!-- Each row carries its last day in data-end. A small script at the bottom
+       moves rows whose date has passed from Upcoming into Recent, so nothing
+       here goes stale after an event. Keep rows newest-first in both lists. -->
   <section class="sec" id="news">
     <div class="sec-title">
       <span class="num">01</span>
@@ -87,33 +127,49 @@
       <span class="meta">selected updates</span>
     </div>
 
-    <div class="news-list">
-      <div class="news-row">
-        <div class="when">May 8, 2026</div>
-        <div>
-          <strong>POMS 2026 presentation</strong>
-          <div class="sub">Presented an early-stage project in Reno, NV.</div>
+    <div class="news-group" data-group="upcoming">
+      <h3 class="news-label">Upcoming</h3>
+      <div class="news-list">
+        <div class="news-row" data-end="2026-11-04">
+          <div class="when"><time datetime="2026-11-01">Nov 1–4, 2026</time></div>
+          <div>
+            <strong>INFORMS Annual Meeting 2026</strong>
+            <div class="sub">San Francisco, CA</div>
+          </div>
+        </div>
+        <div class="news-row" data-end="2026-11-01">
+          <div class="when"><time datetime="2026-10-31">Oct 31–Nov 1, 2026</time></div>
+          <div>
+            <strong>CIST 2026</strong>
+            <div class="sub">Conference on Information Systems and Technology · San Francisco, CA</div>
+          </div>
         </div>
       </div>
-      <div class="news-row">
-        <div class="when">Jul 4-5, 2026</div>
-        <div>
-          <strong>SWAIB 2026</strong>
-          <div class="sub">Attended the meeting in Dalian, China.</div>
+    </div>
+
+    <div class="news-group" data-group="recent">
+      <h3 class="news-label">Recent</h3>
+      <div class="news-list">
+        <div class="news-row" data-end="2026-07-05">
+          <div class="when"><time datetime="2026-07-04">Jul 4–5, 2026</time></div>
+          <div>
+            <strong>SWAIB 2026</strong>
+            <div class="sub">Dalian, China</div>
+          </div>
         </div>
-      </div>
-      <div class="news-row">
-        <div class="when">Oct 31-Nov 1, 2026</div>
-        <div>
-          <strong>CIST 2026</strong>
-          <div class="sub">Will attend the Conference on Information Systems and Technology in San Francisco, CA.</div>
+        <div class="news-row" data-end="2026-06-05">
+          <div class="when"><time datetime="2026-06-05">Jun 5, 2026</time></div>
+          <div>
+            <strong>Paper on arXiv · KDD 2026 Blue Sky Ideas</strong>
+            <div class="sub"><a href="https://arxiv.org/abs/2606.07017" rel="noopener">The Sim-to-Real Gap of Foundation Model Agents: A Unified MDP Perspective</a></div>
+          </div>
         </div>
-      </div>
-      <div class="news-row">
-        <div class="when">Nov 1-4, 2026</div>
-        <div>
-          <strong>INFORMS Annual Meeting 2026</strong>
-          <div class="sub">Will attend the meeting in San Francisco, CA.</div>
+        <div class="news-row" data-end="2026-05-08">
+          <div class="when"><time datetime="2026-05-08">May 8, 2026</time></div>
+          <div>
+            <strong>POMS 2026 · presentation</strong>
+            <div class="sub">Presented an early-stage project · Reno, NV</div>
+          </div>
         </div>
       </div>
     </div>
@@ -135,25 +191,40 @@
         <span class="paper-tag">early-stage work</span>
       </div>
     </div>
+
+    <div class="research-group">
+      <h3>Publications in CS</h3>
+      <div class="subhead">peer-reviewed · computer science venues</div>
+      <div class="paper pub">
+        <div class="paper-title"><a href="https://arxiv.org/abs/2606.07017" rel="noopener">The Sim-to-Real Gap of Foundation Model Agents: A Unified MDP Perspective</a></div>
+        <div class="paper-authors">Xiaoou Liu, Tiejin Chen, <b>Weibo Li</b>, Xiyang Hu, Hua Wei</div>
+        <div class="paper-venue">KDD 2026 · Blue Sky Ideas Track</div>
+        <div class="paper-links">
+          <a href="https://arxiv.org/abs/2606.07017" rel="noopener">arXiv</a>
+          <a href="https://arxiv.org/pdf/2606.07017" rel="noopener">pdf</a>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- EDUCATION -->
-  <section class="sec" id="education">
+  <!-- BACKGROUND · education + experience -->
+  <section class="sec" id="background">
     <div class="sec-title">
       <span class="num">03</span>
-      <h2>Education</h2>
-      <span class="meta">training</span>
+      <h2>Background</h2>
+      <span class="meta">education &amp; experience</span>
     </div>
+    <h3 class="cv-label" id="education">Education</h3>
     <div class="cv-list">
       <div class="cv-row">
-        <div class="when">2024.8 — Present</div>
+        <div class="when">Aug 2024 — Present</div>
         <div>
           <strong><a href="https://www.asu.edu/" rel="noopener">Arizona State University</a></strong>
           <div class="sub">PhD, Business Admin (CIS) · <a href="https://wpcarey.asu.edu/" rel="noopener">W.P. Carey</a></div>
         </div>
       </div>
       <div class="cv-row">
-        <div class="when">2018.9 — 2023.7</div>
+        <div class="when">Sep 2018 — Jul 2023</div>
         <div>
           <strong><a href="https://www.tongji.edu.cn/eng/" rel="noopener">Tongji University</a>, Shanghai</strong>
           <div class="sub">B.Sc. Management (MIS)</div>
@@ -161,32 +232,25 @@
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- EXPERIENCE -->
-  <section class="sec" id="experience">
-    <div class="sec-title">
-      <span class="num">04</span>
-      <h2>Experience</h2>
-      <span class="meta">selected roles</span>
-    </div>
+    <h3 class="cv-label" id="experience">Experience</h3>
     <div class="cv-list">
       <div class="cv-row">
-        <div class="when">2023.2 — 2023.6</div>
+        <div class="when">Feb 2023 — Jun 2023</div>
         <div>
           <strong>MM Capital</strong>
           <div class="sub">Investment Analyst Intern · generative AI</div>
         </div>
       </div>
       <div class="cv-row">
-        <div class="when">2022.8 — 2022.9</div>
+        <div class="when">Aug 2022 — Sep 2022</div>
         <div>
           <strong>Huatai Securities, Research Institute</strong>
           <div class="sub">Analyst Intern · Financial Engineering</div>
         </div>
       </div>
       <div class="cv-row">
-        <div class="when">2022.2 — 2022.7</div>
+        <div class="when">Feb 2022 — Jul 2022</div>
         <div>
           <strong>BCG China</strong>
           <div class="sub">Part-time Assistant</div>
@@ -198,7 +262,7 @@
   <!-- OFF-DUTY / lists -->
   <section class="sec" id="off">
     <div class="sec-title">
-      <span class="num">05</span>
+      <span class="num">04</span>
       <h2>Off-duty</h2>
       <span class="meta">catalogs &amp; lists</span>
     </div>
@@ -246,22 +310,26 @@
     <div class="snapshot-strip">
       <div class="snapshots">
         <figure class="snap">
-          <img src="photos/IMG_0344.jpg" alt="Museum skylight with colorful geometric glass" loading="lazy">
+          <a href="photos/IMG_0344.jpg" class="snap-link"><img src="photos/thumb/IMG_0344.webp" width="400" height="533" alt="Museum skylight with colorful geometric glass" loading="lazy" decoding="async"></a>
         </figure>
         <figure class="snap">
-          <img src="photos/IMG_2277.jpg" alt="Marble bust of Athena in a museum" loading="lazy">
+          <a href="photos/IMG_2277.jpg" class="snap-link"><img src="photos/thumb/IMG_2277.webp" width="400" height="533" alt="Marble bust of Athena in a museum" loading="lazy" decoding="async"></a>
         </figure>
         <figure class="snap">
-          <img src="photos/IMG_3380.jpg" alt="Monument Valley at sunset" loading="lazy">
+          <a href="photos/IMG_3380.jpg" class="snap-link"><img src="photos/thumb/IMG_3380.webp" width="400" height="533" alt="Monument Valley at sunset" loading="lazy" decoding="async"></a>
         </figure>
         <figure class="snap">
-          <img src="photos/IMG_5055.jpg" alt="Beach sunset on the California coast" loading="lazy">
+          <a href="photos/IMG_5055.jpg" class="snap-link"><img src="photos/thumb/IMG_5055.webp" width="400" height="533" alt="Beach sunset on the California coast" loading="lazy" decoding="async"></a>
         </figure>
         <figure class="snap">
-          <img src="photos/IMG_5108.jpg" alt="Los Angeles skyline at night" loading="lazy">
+          <a href="photos/IMG_5108.jpg" class="snap-link"><img src="photos/thumb/IMG_5108.webp" width="400" height="533" alt="Los Angeles skyline at night" loading="lazy" decoding="async"></a>
         </figure>
       </div>
     </div>
+    <dialog class="lightbox" aria-label="Photo">
+      <button type="button" class="lightbox-close" aria-label="Close">[close]</button>
+      <img alt="">
+    </dialog>
   </section>
 
   <!-- CONTACT / SIGN-OFF -->
@@ -284,23 +352,77 @@
 
 <script>
 (function () {
+  var root = document.documentElement;
+
+  // ── Theme toggle. The initial theme is applied in <head>; this only wires
+  //    the button and follows OS changes until the visitor picks one. ──
   var t = document.querySelector('.theme-toggle');
-  if (localStorage.getItem('theme') === 'dark') {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    t.textContent = '[light]';
+  function store(v) { try { localStorage.setItem('theme', v); } catch (e) {} }
+  function saved() { try { return localStorage.getItem('theme'); } catch (e) { return null; } }
+  function apply(dark) {
+    if (dark) root.setAttribute('data-theme', 'dark'); else root.removeAttribute('data-theme');
+    t.textContent = dark ? '[light]' : '[dark]';
+    t.setAttribute('aria-pressed', dark ? 'true' : 'false');
   }
+  apply(root.getAttribute('data-theme') === 'dark');
   t.addEventListener('click', function () {
-    var dark = document.documentElement.getAttribute('data-theme') === 'dark';
-    if (dark) {
-      document.documentElement.removeAttribute('data-theme');
-      localStorage.setItem('theme', 'light');
-      t.textContent = '[dark]';
-    } else {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      localStorage.setItem('theme', 'dark');
-      t.textContent = '[light]';
-    }
+    var dark = root.getAttribute('data-theme') !== 'dark';
+    apply(dark);
+    store(dark ? 'dark' : 'light');
   });
+  if (window.matchMedia) {
+    var mq = matchMedia('(prefers-color-scheme: dark)');
+    var follow = function (e) { if (!saved()) apply(e.matches); };
+    if (mq.addEventListener) mq.addEventListener('change', follow); else if (mq.addListener) mq.addListener(follow);
+  }
+
+  // ── Year in the program, counted from the Aug 2024 start. ──
+  var now = new Date();
+  var months = (now.getFullYear() - 2024) * 12 + now.getMonth() - 7;
+  var ord = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh'];
+  var y = Math.floor(months / 12);
+  if (y >= 0 && y < ord.length) {
+    document.querySelectorAll('.phd-year').forEach(function (el) { el.textContent = ord[y]; });
+  }
+
+  // ── News: once an event's last day is over, move it from Upcoming to the
+  //    top of Recent. Upcoming is newest-first, so walk it bottom-up. ──
+  var up = document.querySelector('[data-group="upcoming"]');
+  var recent = document.querySelector('[data-group="recent"] .news-list');
+  if (up && recent) {
+    var rows = up.querySelectorAll('.news-row');
+    for (var i = rows.length - 1; i >= 0; i--) {
+      var end = new Date(rows[i].getAttribute('data-end') + 'T23:59:59');
+      if (end < now) recent.insertBefore(rows[i], recent.firstElementChild);
+    }
+    if (!up.querySelector('.news-row')) up.hidden = true;
+  }
+
+  // ── "updated" stamp from the server's Last-Modified header. Without that
+  //    header the browser reports the current time, so skip it then. ──
+  var mod = new Date(document.lastModified);
+  if (!isNaN(mod) && now - mod > 60000) {
+    var stamp = document.querySelector('.updated');
+    stamp.querySelector('.updated-date').textContent =
+      mod.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }).toLowerCase();
+    stamp.hidden = false;
+  }
+
+  // ── Photo lightbox. Links still work as plain image links without JS. ──
+  var box = document.querySelector('.lightbox');
+  if (box && box.showModal) {
+    var big = box.querySelector('img');
+    document.querySelectorAll('.snap-link').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        big.src = a.getAttribute('href');
+        big.alt = a.querySelector('img').alt;
+        box.showModal();
+      });
+    });
+    box.querySelector('.lightbox-close').addEventListener('click', function () { box.close(); });
+    box.addEventListener('click', function (e) { if (e.target === box) box.close(); });
+  }
 })();
 </script>
 </body>
