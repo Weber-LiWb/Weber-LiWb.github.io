@@ -109,11 +109,11 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   border-radius: 2px;
 }
 /* Mono "terminal" links carry no underline at rest. */
-.bare, .topbar a, .card-links a, .paper-links a, .snap-link, .tail a {
+.bare, .topbar a, .hero-links a, .paper-links a, .snap-link, .tail a {
   background-image: linear-gradient(currentColor, currentColor);
   background-size: 0% 1px;
 }
-.bare:hover, .topbar a:hover, .card-links a:hover, .paper-links a:hover, .tail a:hover { background-size: 100% 1px; }
+.bare:hover, .topbar a:hover, .hero-links a:hover, .paper-links a:hover, .tail a:hover { background-size: 100% 1px; }
 
 button { font: inherit; color: inherit; }
 
@@ -317,17 +317,19 @@ h1.name .w > span { display: inline-block; }
 .quick-facts div { padding: 3px 0; }
 .quick-facts .k { color: var(--ink-3); }
 .quick-facts .clock { font-variant-numeric: tabular-nums; color: var(--ink); }
-.quick-facts .card-links {
-  margin-top: 10px;
-  padding-top: 12px;
-  border-top: 1px dashed var(--rule);
+/* Profile links: one mono row under the bio, ordered by how often an
+   academic visitor wants them. */
+.hero-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px 14px;
+  gap: 6px 22px;
+  margin-top: 22px;
+  font-family: var(--mono);
+  font-size: 12px;
 }
-.quick-facts .card-links a { color: var(--link); font-size: 11px; }
-.quick-facts .card-links a:hover { color: var(--link-hover); }
-.quick-facts .card-links a::before { content: '» '; color: var(--ink-3); }
+.hero-links a { color: var(--link); }
+.hero-links a:hover { color: var(--link-hover); }
+.hero-links a::before { content: '» '; color: var(--ink-3); }
 
 /* ─── Sections ─── */
 .sec {

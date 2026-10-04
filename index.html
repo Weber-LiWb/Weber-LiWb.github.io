@@ -114,6 +114,13 @@
             Prior to ASU, I earned my bachelor&rsquo;s degree from <a href="https://www.tongji.edu.cn/eng/" rel="noopener">Tongji University</a> in Shanghai.
           </p>
         </div>
+        <nav class="hero-links hero-in" style="--d:2" aria-label="Profiles">
+          <a href="https://scholar.google.com/citations?user=8kWPa38AAAAJ" rel="noopener">scholar</a>
+          <a href="mailto:weiboli@asu.edu?subject=Research%20Inquiry%20from%20Personal%20Site">email</a>
+          <a href="https://github.com/Weber-LiWb" rel="noopener">github</a>
+          <a href="https://www.linkedin.com/in/weibo-weber" rel="noopener">linkedin</a>
+          <a href="https://search.asu.edu/profile/5073811" rel="noopener">asu profile</a>
+        </nav>
       </div>
       <div class="portrait-col">
         <div class="portrait-frame hero-in" style="--d:0">
@@ -122,15 +129,7 @@
         <div class="quick-facts hero-in" style="--d:1">
           <div><span class="k">loc&nbsp;&nbsp;</span> Tempe, AZ</div>
           <div><span class="k">open&nbsp;</span> collaboration</div>
-          <div><span class="k">tz&nbsp;&nbsp;&nbsp;</span> MST (no DST)</div>
-          <div class="now-row" hidden><span class="k">now&nbsp;&nbsp;</span> <time class="clock"></time></div>
-          <div class="card-links">
-            <a href="mailto:weiboli@asu.edu?subject=Research%20Inquiry%20from%20Personal%20Site">email</a>
-            <a href="https://www.linkedin.com/in/weibo-weber" rel="noopener">linkedin</a>
-            <a href="https://search.asu.edu/profile/5073811" rel="noopener">asu profile</a>
-            <a href="https://scholar.google.com/citations?user=8kWPa38AAAAJ" rel="noopener">scholar</a>
-            <a href="https://github.com/Weber-LiWb" rel="noopener">github</a>
-          </div>
+          <div><span class="k">tz&nbsp;&nbsp;&nbsp;</span> MST <span class="clock-wrap" hidden>· <time class="clock"></time></span><span class="no-clock">(no DST)</span></div>
         </div>
       </div>
     </div>
@@ -511,10 +510,12 @@
   // ── Local time in Tempe. Arizona keeps MST all year, so a fixed zone. ──
   var clock = $('.clock');
   if (clock && window.Intl) {
-    var fmt = new Intl.DateTimeFormat('en-GB', { timeZone: 'America/Phoenix', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+    var fmt = new Intl.DateTimeFormat('en-GB', { timeZone: 'America/Phoenix', hour: '2-digit', minute: '2-digit', hour12: false });
     var tick = function () { clock.textContent = fmt.format(new Date()); };
-    tick(); setInterval(tick, 1000);
+    tick(); setInterval(tick, 15000);
+    // A live local time makes the DST note redundant, so it swaps in.
     clock.parentNode.hidden = false;
+    $('.no-clock').hidden = true;
   }
 
   // ── Sticky bar: reading progress and the section in view. ──
