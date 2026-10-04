@@ -222,9 +222,9 @@ h1.name {
   /* NHG Display Pro 25 Thin. Tracking stays close to normal — thin strokes
      at this size collapse into each other if the letters are pulled tight. */
   font-weight: 200;
-  font-size: clamp(60px, 12.4vw, 188px);
-  line-height: .9;
-  letter-spacing: -0.028em;
+  font-size: clamp(52px, 7.6vw, 112px);
+  line-height: .92;
+  letter-spacing: -0.022em;
   margin-left: -0.05em; /* optical: the W's left shoulder sits on the column edge */
   padding-bottom: .06em;
 }
@@ -262,9 +262,9 @@ h1.name .w > span { display: inline-block; }
 
 .name-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-end;
-  gap: 12px 32px;
+  gap: 12px clamp(28px, 3.4vw, 48px);
   flex-wrap: wrap;
 }
 .role {
@@ -349,7 +349,7 @@ h1.name .w > span { display: inline-block; }
 .sec-title .num {
   font-family: var(--sans-display);
   font-weight: 200;
-  font-size: clamp(44px, 4.6vw, 68px);
+  font-size: clamp(40px, 3.9vw, 56px);
   line-height: .9;
   letter-spacing: -0.03em;
   color: var(--ink);
@@ -908,7 +908,7 @@ footer.tail {
   }
   .topbar .left::-webkit-scrollbar { display: none; }
   .topbar .right .updated { display: none; }
-  h1.name { font-size: clamp(56px, 18vw, 84px); }
+  h1.name { font-size: clamp(46px, 14vw, 60px); }
   .bio p { font-size: 16.5px; }
   .hero-grid { grid-template-columns: 1fr; grid-template-areas: "text" "card"; row-gap: 32px; }
   .role { padding-bottom: 0; }
