@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Weibo Li (李炜博 · Weber) — PhD student in Computer Information Systems at Arizona State University. Research on LLM post-training, digital platforms, and agentic workflows.">
   <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#161618" media="(prefers-color-scheme: dark)">
   <meta property="og:title" content="Weibo Li · PhD Student in Information Systems, ASU">
   <meta property="og:description" content="PhD student at W.P. Carey, ASU. LLM post-training, digital platforms, agentic workflows.">
   <meta property="og:type" content="profile">
@@ -26,7 +28,11 @@
     try { saved = localStorage.getItem('theme'); } catch (e) {}
     var dark = saved ? saved === 'dark'
       : !!(window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches);
-    if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+    var r = document.documentElement;
+    if (dark) r.setAttribute('data-theme', 'dark');
+    // Entrance and scroll animations hang off .js, so a visitor without
+    // scripts sees the whole page at rest instead of hidden content.
+    r.className += ' js';
   })();
   </script>
   <script type="application/ld+json">
@@ -61,9 +67,11 @@
        remains the fallback in css/style.css if the kit ever stops loading. -->
   <link rel="preconnect" href="https://use.typekit.net" crossorigin>
   <link rel="stylesheet" href="https://use.typekit.net/quq4vwr.css">
+  <link rel="preload" as="image" href="assets/profile.jpg" fetchpriority="high">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<a class="skip" href="#main">skip to content</a>
 <div class="page">
 
   <!-- Top bar -->
@@ -77,21 +85,28 @@
     </div>
     <div class="right">
       <span class="updated" hidden><span class="dot">●</span> updated <span class="updated-date"></span></span>
+      <button class="kbd-hint" type="button" aria-label="Open command menu" aria-haspopup="dialog" hidden>[⌘K]</button>
       <button class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false">[dark]</button>
     </div>
+    <span class="progress" aria-hidden="true"></span>
   </nav>
+
+  <main id="main">
 
   <!-- HERO -->
   <section class="hero" id="about">
-    <div class="prompt-line"><span class="p">weber@asu</span><span class="c">:~$</span> whoami</div>
+    <div class="prompt-line"><span class="p">weber@asu</span><span class="c">:~$</span> <span class="cmd">whoami</span><span class="caret" aria-hidden="true"></span></div>
+    <div class="name-row">
+      <h1 class="name"><span class="w"><span>Weibo</span></span> <span class="w"><span>Li</span></span></h1>
+      <div class="role hero-in" style="--d:0">
+        PhD student <span class="sep">/</span> CIS <span class="sep">/</span> W.P. Carey, ASU
+      </div>
+    </div>
+    <hr class="hero-rule">
     <div class="hero-grid">
-      <div>
-        <h1 class="name">Weibo Li</h1>
-        <p class="statement">Leveraging the power of AI to solve real-world problems.</p>
-        <div class="role">
-          PhD student <span class="sep">/</span> CIS <span class="sep">/</span> W.P. Carey, ASU
-        </div>
-        <div class="bio">
+      <div class="hero-text">
+        <p class="statement hero-in" style="--d:0">Leveraging the power of AI to solve <span class="nowrap">real-world</span> problems.</p>
+        <div class="bio hero-in" style="--d:1">
           <p>
             Hi — I&rsquo;m Weibo Li (<span lang="zh">李炜博</span>), a <span class="phd-year">third</span>-year PhD student in Computer Information Systems at the <a href="https://wpcarey.asu.edu/" rel="noopener">W.P. Carey School of Business</a>, <a href="https://www.asu.edu/" rel="noopener">Arizona State University</a>. My research focuses on LLM post-training, specifically its applications in digital platforms and agentic workflows.
           </p>
@@ -101,11 +116,14 @@
         </div>
       </div>
       <div class="portrait-col">
-        <img class="portrait" src="assets/profile.jpg" width="320" height="480" alt="Portrait of Weibo Li">
-        <div class="quick-facts">
+        <div class="portrait-frame hero-in" style="--d:0">
+          <img class="portrait" src="assets/profile.jpg" width="320" height="480" alt="Portrait of Weibo Li" fetchpriority="high">
+        </div>
+        <div class="quick-facts hero-in" style="--d:1">
           <div><span class="k">loc&nbsp;&nbsp;</span> Tempe, AZ</div>
           <div><span class="k">open&nbsp;</span> collaboration</div>
           <div><span class="k">tz&nbsp;&nbsp;&nbsp;</span> MST (no DST)</div>
+          <div class="now-row" hidden><span class="k">now&nbsp;&nbsp;</span> <time class="clock"></time></div>
           <div class="card-links">
             <a href="mailto:weiboli@asu.edu?subject=Research%20Inquiry%20from%20Personal%20Site">email</a>
             <a href="https://www.linkedin.com/in/weibo-weber" rel="noopener">linkedin</a>
@@ -122,55 +140,56 @@
   <!-- Each row carries its last day in data-end. A small script at the bottom
        moves rows whose date has passed from Upcoming into Recent, so nothing
        here goes stale after an event. Keep rows newest-first in both lists. -->
-  <section class="sec" id="news">
-    <div class="sec-title">
+  <section class="sec" id="news" data-reveal-sec>
+    <div class="sec-title" data-reveal>
       <span class="num">01</span>
       <h2>News &amp; Talks</h2>
       <span class="meta">selected updates</span>
     </div>
-
-    <div class="news-group" data-group="upcoming">
-      <h3 class="news-label">Upcoming</h3>
-      <div class="news-list">
-        <div class="news-row" data-end="2026-11-04">
-          <div class="when"><time datetime="2026-11-01">Nov 1–4, 2026</time></div>
-          <div>
-            <strong>INFORMS Annual Meeting 2026</strong>
-            <div class="sub">San Francisco, CA</div>
+    <div class="sec-body">
+      <div class="news-group" data-group="upcoming">
+        <h3 class="news-label" data-reveal>Upcoming</h3>
+        <div class="news-list">
+          <div class="news-row" data-end="2026-11-04" data-reveal>
+            <div class="when"><time datetime="2026-11-01">Nov 1–4, 2026</time></div>
+            <div>
+              <strong>INFORMS Annual Meeting 2026</strong>
+              <div class="sub">San Francisco, CA</div>
+            </div>
           </div>
-        </div>
-        <div class="news-row" data-end="2026-11-01">
-          <div class="when"><time datetime="2026-10-31">Oct 31–Nov 1, 2026</time></div>
-          <div>
-            <strong>CIST 2026</strong>
-            <div class="sub">Conference on Information Systems and Technology · San Francisco, CA</div>
+          <div class="news-row" data-end="2026-11-01" data-reveal>
+            <div class="when"><time datetime="2026-10-31">Oct 31–Nov 1, 2026</time></div>
+            <div>
+              <strong>CIST 2026</strong>
+              <div class="sub">Conference on Information Systems and Technology · San Francisco, CA</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="news-group" data-group="recent">
-      <h3 class="news-label">Recent</h3>
-      <div class="news-list">
-        <div class="news-row" data-end="2026-07-05">
-          <div class="when"><time datetime="2026-07-04">Jul 4–5, 2026</time></div>
-          <div>
-            <strong>SWAIB 2026</strong>
-            <div class="sub">Dalian, China</div>
+      <div class="news-group" data-group="recent">
+        <h3 class="news-label" data-reveal>Recent</h3>
+        <div class="news-list">
+          <div class="news-row" data-end="2026-07-05" data-reveal>
+            <div class="when"><time datetime="2026-07-04">Jul 4–5, 2026</time></div>
+            <div>
+              <strong>SWAIB 2026</strong>
+              <div class="sub">Dalian, China</div>
+            </div>
           </div>
-        </div>
-        <div class="news-row" data-end="2026-06-05">
-          <div class="when"><time datetime="2026-06-05">Jun 5, 2026</time></div>
-          <div>
-            <strong>Paper on arXiv · KDD 2026 Blue Sky Ideas</strong>
-            <div class="sub"><a href="https://arxiv.org/abs/2606.07017" rel="noopener">The Sim-to-Real Gap of Foundation Model Agents: A Unified MDP Perspective</a></div>
+          <div class="news-row" data-end="2026-06-05" data-reveal>
+            <div class="when"><time datetime="2026-06-05">Jun 5, 2026</time></div>
+            <div>
+              <strong>Paper on arXiv · KDD 2026 Blue Sky Ideas</strong>
+              <div class="sub"><a href="https://arxiv.org/abs/2606.07017" rel="noopener">The Sim-to-Real Gap of Foundation Model Agents: A Unified MDP Perspective</a></div>
+            </div>
           </div>
-        </div>
-        <div class="news-row" data-end="2026-05-08">
-          <div class="when"><time datetime="2026-05-08">May 8, 2026</time></div>
-          <div>
-            <strong>POMS 2026 · presentation</strong>
-            <div class="sub">Presented an early-stage project · Reno, NV</div>
+          <div class="news-row" data-end="2026-05-08" data-reveal>
+            <div class="when"><time datetime="2026-05-08">May 8, 2026</time></div>
+            <div>
+              <strong>POMS 2026 · presentation</strong>
+              <div class="sub">Presented an early-stage project · Reno, NV</div>
+            </div>
           </div>
         </div>
       </div>
@@ -178,200 +197,270 @@
   </section>
 
   <!-- RESEARCH -->
-  <section class="sec" id="research">
-    <div class="sec-title">
+  <section class="sec" id="research" data-reveal-sec>
+    <div class="sec-title" data-reveal>
       <span class="num">02</span>
       <h2>Research</h2>
       <span class="meta">active directions</span>
     </div>
-    <div class="research-group">
-      <h3>Research interests</h3>
-      <div class="subhead">LLM post-training · digital platforms · agentic workflows</div>
-      <div class="paper active">
-        <div class="paper-title">LLM post-training for platform and agentic-workflow settings</div>
-        <div class="paper-desc">My current work studies how post-trained LLM systems can be designed, evaluated, and deployed in digital-platform settings. Some projects are still early-stage, so this page keeps the research summary deliberately high-level.</div>
-        <span class="paper-tag">early-stage work</span>
+    <div class="sec-body">
+      <div class="research-group">
+        <h3 data-reveal>Research interests</h3>
+        <div class="subhead" data-reveal>LLM post-training · digital platforms · agentic workflows</div>
+        <div class="paper active" data-reveal>
+          <div class="paper-title">LLM post-training for platform and agentic-workflow settings</div>
+          <div class="paper-desc">My current work studies how post-trained LLM systems can be designed, evaluated, and deployed in digital-platform settings. Some projects are still early-stage, so this page keeps the research summary deliberately high-level.</div>
+          <span class="paper-tag">early-stage work</span>
+        </div>
       </div>
-    </div>
 
-    <div class="research-group">
-      <h3>Publications in CS</h3>
-      <div class="subhead">peer-reviewed · computer science venues</div>
-      <div class="paper pub">
-        <div class="paper-title"><a href="https://arxiv.org/abs/2606.07017" rel="noopener">The Sim-to-Real Gap of Foundation Model Agents: A Unified MDP Perspective</a></div>
-        <div class="paper-authors">Xiaoou Liu, Tiejin Chen, <b>Weibo Li</b>, Xiyang Hu, Hua Wei</div>
-        <div class="paper-venue">KDD 2026 · Blue Sky Ideas Track</div>
-        <div class="paper-links">
-          <a href="https://arxiv.org/abs/2606.07017" rel="noopener">arXiv</a>
-          <a href="https://arxiv.org/pdf/2606.07017" rel="noopener">pdf</a>
+      <div class="research-group">
+        <h3 data-reveal>Publications in CS</h3>
+        <div class="subhead" data-reveal>peer-reviewed · computer science venues</div>
+        <div class="paper pub" data-reveal>
+          <div class="paper-title"><a href="https://arxiv.org/abs/2606.07017" rel="noopener">The Sim-to-Real Gap of Foundation Model Agents: A Unified MDP Perspective</a></div>
+          <div class="paper-authors">Xiaoou Liu, Tiejin Chen, <b>Weibo Li</b>, Xiyang Hu, Hua Wei</div>
+          <div class="paper-venue">KDD 2026 · Blue Sky Ideas Track</div>
+          <div class="paper-links">
+            <a href="https://arxiv.org/abs/2606.07017" rel="noopener">arXiv</a>
+            <a href="https://arxiv.org/pdf/2606.07017" rel="noopener">pdf</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- BACKGROUND · education + experience -->
-  <section class="sec" id="background">
-    <div class="sec-title">
+  <section class="sec" id="background" data-reveal-sec>
+    <div class="sec-title" data-reveal>
       <span class="num">03</span>
       <h2>Background</h2>
       <span class="meta">education &amp; experience</span>
     </div>
-    <h3 class="cv-label" id="education">Education</h3>
-    <div class="cv-list">
-      <div class="cv-row">
-        <div class="when">Aug 2024 — Present</div>
-        <div>
-          <strong><a href="https://www.asu.edu/" rel="noopener">Arizona State University</a></strong>
-          <div class="sub">PhD, Business Admin (CIS) · <a href="https://wpcarey.asu.edu/" rel="noopener">W.P. Carey</a></div>
+    <div class="sec-body">
+      <h3 class="cv-label" id="education" data-reveal>Education</h3>
+      <div class="cv-list">
+        <div class="cv-row" data-reveal>
+          <div class="when">Aug 2024 — Present</div>
+          <div>
+            <strong><a href="https://www.asu.edu/" rel="noopener">Arizona State University</a></strong>
+            <div class="sub">PhD, Business Admin (CIS) · <a href="https://wpcarey.asu.edu/" rel="noopener">W.P. Carey</a></div>
+          </div>
+        </div>
+        <div class="cv-row" data-reveal>
+          <div class="when">Sep 2018 — Jul 2023</div>
+          <div>
+            <strong><a href="https://www.tongji.edu.cn/eng/" rel="noopener">Tongji University</a>, Shanghai</strong>
+            <div class="sub">B.Sc. Management (MIS)</div>
+            <div class="note">Prior to 2020, my major was Mechanical Engineering. I transferred to MIS in September 2020.</div>
+          </div>
         </div>
       </div>
-      <div class="cv-row">
-        <div class="when">Sep 2018 — Jul 2023</div>
-        <div>
-          <strong><a href="https://www.tongji.edu.cn/eng/" rel="noopener">Tongji University</a>, Shanghai</strong>
-          <div class="sub">B.Sc. Management (MIS)</div>
-          <div class="note">Prior to 2020, my major was Mechanical Engineering. I transferred to MIS in September 2020.</div>
-        </div>
-      </div>
-    </div>
 
-    <h3 class="cv-label" id="experience">Experience</h3>
-    <div class="cv-list">
-      <div class="cv-row">
-        <div class="when">Feb 2023 — Jun 2023</div>
-        <div>
-          <strong>MM Capital</strong>
-          <div class="sub">Investment Analyst Intern · generative AI</div>
+      <h3 class="cv-label" id="experience" data-reveal>Experience</h3>
+      <div class="cv-list">
+        <div class="cv-row" data-reveal>
+          <div class="when">Feb 2023 — Jun 2023</div>
+          <div>
+            <strong>MM Capital</strong>
+            <div class="sub">Investment Analyst Intern · generative AI</div>
+          </div>
         </div>
-      </div>
-      <div class="cv-row">
-        <div class="when">Aug 2022 — Sep 2022</div>
-        <div>
-          <strong>Huatai Securities, Research Institute</strong>
-          <div class="sub">Analyst Intern · Financial Engineering</div>
+        <div class="cv-row" data-reveal>
+          <div class="when">Aug 2022 — Sep 2022</div>
+          <div>
+            <strong>Huatai Securities, Research Institute</strong>
+            <div class="sub">Analyst Intern · Financial Engineering</div>
+          </div>
         </div>
-      </div>
-      <div class="cv-row">
-        <div class="when">Feb 2022 — Jul 2022</div>
-        <div>
-          <strong>BCG China</strong>
-          <div class="sub">Part-time Assistant</div>
+        <div class="cv-row" data-reveal>
+          <div class="when">Feb 2022 — Jul 2022</div>
+          <div>
+            <strong>BCG China</strong>
+            <div class="sub">Part-time Assistant</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- OFF-DUTY / lists -->
-  <section class="sec" id="off">
-    <div class="sec-title">
+  <section class="sec" id="off" data-reveal-sec>
+    <div class="sec-title" data-reveal>
       <span class="num">04</span>
       <h2>Off-duty</h2>
       <span class="meta">catalogs &amp; lists</span>
     </div>
 
-    <div class="off-grid">
-      <div class="list-block">
-        <h4>Currently reading</h4>
-        <ul>
-          <li><span class="bullet hot">▸</span> Histories of Tokugawa &amp; Meiji Japan</li>
-          <li><span class="bullet hot">▸</span> Early-modern Europe: Renaissance → Industrial Rev.</li>
-          <li><span class="bullet">·</span> A biography or two, always</li>
-        </ul>
-        <div class="note-inline">// mostly history, politics, biography. next: something on the Hanseatic League.</div>
-      </div>
+    <div class="sec-body">
+      <div class="off-grid">
+        <div class="list-block" data-reveal>
+          <h4>Currently reading</h4>
+          <ul>
+            <li><span class="bullet hot">▸</span> Histories of Tokugawa &amp; Meiji Japan</li>
+            <li><span class="bullet hot">▸</span> Early-modern Europe: Renaissance → Industrial Rev.</li>
+            <li><span class="bullet">·</span> A biography or two, always</li>
+          </ul>
+          <div class="note-inline">// mostly history, politics, biography. next: something on the Hanseatic League.</div>
+        </div>
 
-      <div class="list-block">
-        <h4>Sound</h4>
-        <ul>
-          <li><span class="bullet">·</span> Jazz — the whole shelf</li>
-          <li><span class="bullet">·</span> Electronic rock</li>
-          <li><span class="bullet">·</span> Brit-pop, unrepentant</li>
-        </ul>
-      </div>
+        <div class="list-block" data-reveal>
+          <h4>Sound</h4>
+          <ul>
+            <li><span class="bullet">·</span> Jazz — the whole shelf</li>
+            <li><span class="bullet">·</span> Electronic rock</li>
+            <li><span class="bullet">·</span> Brit-pop, unrepentant</li>
+          </ul>
+        </div>
 
-      <div class="list-block">
-        <h4>Cities I keep returning to</h4>
-        <ul>
-          <li><span class="bullet">◆</span> LA — favorite US city, no contest</li>
-          <li><span class="bullet">·</span> Paris / Rome / Barcelona — can&rsquo;t decide. each wins on different days.</li>
-        </ul>
-        <div class="note-inline">// plan: two laps around the world. first as a backpacker, second (post-retirement) staying at the one weird hotel per city.</div>
-      </div>
+        <div class="list-block" data-reveal>
+          <h4>Cities I keep returning to</h4>
+          <ul>
+            <li><span class="bullet">◆</span> LA — favorite US city, no contest</li>
+            <li><span class="bullet">·</span> Paris / Rome / Barcelona — can&rsquo;t decide. each wins on different days.</li>
+          </ul>
+          <div class="note-inline">// plan: two laps around the world. first as a backpacker, second (post-retirement) staying at the one weird hotel per city.</div>
+        </div>
 
-      <div class="list-block">
-        <h4>Other interests</h4>
-        <ul>
-          <li><span class="bullet">·</span> Photography — museums, street, light</li>
-          <li><span class="bullet">·</span> Cinema — dream: Cannes / Venice / Berlinale in person</li>
-          <li><span class="bullet">·</span> Near-term dream: a SXSW badge</li>
-          <li><span class="bullet">·</span> Coffee &amp; cocktails — the slow kind of craft</li>
-        </ul>
+        <div class="list-block" data-reveal>
+          <h4>Other interests</h4>
+          <ul>
+            <li><span class="bullet">·</span> Photography — museums, street, light</li>
+            <li><span class="bullet">·</span> Cinema — dream: Cannes / Venice / Berlinale in person</li>
+            <li><span class="bullet">·</span> Near-term dream: a SXSW badge</li>
+            <li><span class="bullet">·</span> Coffee &amp; cocktails — the slow kind of craft</li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <div class="snapshot-strip">
       <div class="snapshots">
-        <figure class="snap">
+        <figure class="snap" data-reveal>
           <a href="photos/IMG_0344.jpg" class="snap-link"><img src="photos/thumb/IMG_0344.webp" width="400" height="533" alt="Museum skylight with colorful geometric glass" loading="lazy" decoding="async"></a>
         </figure>
-        <figure class="snap">
+        <figure class="snap" data-reveal>
           <a href="photos/IMG_2277.jpg" class="snap-link"><img src="photos/thumb/IMG_2277.webp" width="400" height="533" alt="Marble bust of Athena in a museum" loading="lazy" decoding="async"></a>
         </figure>
-        <figure class="snap">
+        <figure class="snap" data-reveal>
           <a href="photos/IMG_3380.jpg" class="snap-link"><img src="photos/thumb/IMG_3380.webp" width="400" height="533" alt="Monument Valley at sunset" loading="lazy" decoding="async"></a>
         </figure>
-        <figure class="snap">
+        <figure class="snap" data-reveal>
           <a href="photos/IMG_5055.jpg" class="snap-link"><img src="photos/thumb/IMG_5055.webp" width="400" height="533" alt="Beach sunset on the California coast" loading="lazy" decoding="async"></a>
         </figure>
-        <figure class="snap">
+        <figure class="snap" data-reveal>
           <a href="photos/IMG_5108.jpg" class="snap-link"><img src="photos/thumb/IMG_5108.webp" width="400" height="533" alt="Los Angeles skyline at night" loading="lazy" decoding="async"></a>
         </figure>
       </div>
     </div>
     <dialog class="lightbox" aria-label="Photo">
-      <button type="button" class="lightbox-close" aria-label="Close">[close]</button>
-      <img alt="">
+      <div class="lightbox-bar">
+        <span class="lightbox-count" aria-live="polite"></span>
+        <span class="lightbox-cap"></span>
+        <button type="button" class="lightbox-prev" aria-label="Previous photo">[prev]</button>
+        <button type="button" class="lightbox-next" aria-label="Next photo">[next]</button>
+        <button type="button" class="lightbox-close" aria-label="Close">[close]</button>
+      </div>
+      <div class="lightbox-stage"><img alt=""></div>
     </dialog>
   </section>
 
   <!-- CONTACT / SIGN-OFF -->
-  <div class="sign-off" id="contact">
-<pre class="ascii-sig">  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+  <section class="sec sign-off" id="contact" data-reveal-sec>
+    <div class="sec-title" data-reveal>
+      <span class="num">05</span>
+      <h2>Contact</h2>
+      <span class="meta">let&rsquo;s talk</span>
+    </div>
+    <div class="sec-body">
+<pre class="ascii-sig" aria-hidden="true" data-reveal>  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
    ✉   let's talk  ·  weiboli@asu.edu
   ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
 </pre>
-    <div class="sig-text">
-      I&rsquo;d be happy to meet briefly if you are interested in my research or have any questions. Please include enough information about the purpose of the meeting. Best reached at <a href="mailto:weiboli@asu.edu">weiboli@asu.edu</a>.
+      <div data-reveal><a class="big-mail" href="mailto:weiboli@asu.edu?subject=Research%20Inquiry%20from%20Personal%20Site">weiboli@asu.edu<span class="arrow" aria-hidden="true">&#8599;</span></a></div>
+      <div class="mail-actions" data-reveal>
+        <button type="button" class="copy-btn" data-copy="weiboli@asu.edu" hidden>» copy address</button>
+      </div>
+      <div class="sig-text" data-reveal>
+        I&rsquo;d be happy to meet briefly if you are interested in my research or have any questions. Please include enough information about the purpose of the meeting. Best reached at <a href="mailto:weiboli@asu.edu">weiboli@asu.edu</a>.
+      </div>
     </div>
-  </div>
+  </section>
+
+  </main>
 
   <footer class="tail">
     <span>© 2026 weibo li · built by hand, served from ~/</span>
-    <span class="sync-meta">liweibo.io</span>
+    <span class="tail-right"><a href="#about">↑ top</a><span class="sync-meta">liweibo.io</span></span>
   </footer>
 
 </div>
 
+<div class="toast" role="status" aria-live="polite"></div>
+
+<dialog class="palette" aria-label="Command menu">
+  <div class="palette-head">
+    <span class="p">weber@asu</span><span>:~$</span>
+    <input type="text" placeholder="jump to…" autocomplete="off" spellcheck="false"
+           role="combobox" aria-expanded="true" aria-controls="palette-list" aria-autocomplete="list" aria-label="Search commands">
+  </div>
+  <ul class="palette-list" id="palette-list" role="listbox"></ul>
+  <div class="palette-foot"><span>↑↓ move</span><span>↵ open</span><span>esc close</span></div>
+</dialog>
+
 <script>
 (function () {
   var root = document.documentElement;
+  var now = new Date();
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function $(s, c) { return (c || document).querySelector(s); }
+  function $$(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
+
+  // ── Scroll reveals. Runs first: if anything later throws, content still
+  //    appears. Each element staggers against its siblings in view. ──
+  var revealEls = $$('[data-reveal], [data-reveal-sec]');
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function (entries) {
+      var k = 0;
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        if (e.target.hasAttribute('data-reveal')) e.target.style.setProperty('--i', k++);
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('in'); });
+  }
 
   // ── Theme toggle. The initial theme is applied in <head>; this only wires
   //    the button and follows OS changes until the visitor picks one. ──
-  var t = document.querySelector('.theme-toggle');
+  var t = $('.theme-toggle');
   function store(v) { try { localStorage.setItem('theme', v); } catch (e) {} }
   function saved() { try { return localStorage.getItem('theme'); } catch (e) { return null; } }
   function apply(dark) {
     if (dark) root.setAttribute('data-theme', 'dark'); else root.removeAttribute('data-theme');
     t.textContent = dark ? '[light]' : '[dark]';
+    t.setAttribute('aria-label', dark ? 'Light mode' : 'Dark mode');
     t.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    $$('meta[name="theme-color"]').forEach(function (m) { m.content = dark ? '#161618' : '#ffffff'; });
+  }
+  // The new theme wipes in as a circle growing from the toggle.
+  function toggleTheme(origin) {
+    var dark = root.getAttribute('data-theme') !== 'dark';
+    store(dark ? 'dark' : 'light');
+    if (!document.startViewTransition || reduce) { apply(dark); return; }
+    var r = (origin || t).getBoundingClientRect();
+    var x = r.left + r.width / 2, y = r.top + r.height / 2;
+    var end = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+    document.startViewTransition(function () { apply(dark); }).ready.then(function () {
+      root.animate({ clipPath: ['circle(0 at ' + x + 'px ' + y + 'px)', 'circle(' + end + 'px at ' + x + 'px ' + y + 'px)'] },
+        { duration: 700, easing: 'cubic-bezier(.16,1,.3,1)', pseudoElement: '::view-transition-new(root)' });
+    });
   }
   apply(root.getAttribute('data-theme') === 'dark');
-  t.addEventListener('click', function () {
-    var dark = root.getAttribute('data-theme') !== 'dark';
-    apply(dark);
-    store(dark ? 'dark' : 'light');
-  });
+  t.addEventListener('click', function () { toggleTheme(t); });
   if (window.matchMedia) {
     var mq = matchMedia('(prefers-color-scheme: dark)');
     var follow = function (e) { if (!saved()) apply(e.matches); };
@@ -379,51 +468,226 @@
   }
 
   // ── Year in the program, counted from the Aug 2024 start. ──
-  var now = new Date();
   var months = (now.getFullYear() - 2024) * 12 + now.getMonth() - 7;
   var ord = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh'];
   var y = Math.floor(months / 12);
   if (y >= 0 && y < ord.length) {
-    document.querySelectorAll('.phd-year').forEach(function (el) { el.textContent = ord[y]; });
+    $$('.phd-year').forEach(function (el) { el.textContent = ord[y]; });
   }
 
   // ── News: once an event's last day is over, move it from Upcoming to the
-  //    top of Recent. Upcoming is newest-first, so walk it bottom-up. ──
-  var up = document.querySelector('[data-group="upcoming"]');
-  var recent = document.querySelector('[data-group="recent"] .news-list');
+  //    top of Recent. Upcoming is newest-first, so walk it bottom-up. Rows
+  //    still ahead get a day count. ──
+  var up = $('[data-group="upcoming"]');
+  var recent = $('[data-group="recent"] .news-list');
+  var DAY = 864e5;
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  function localDate(iso) { var p = iso.split('-'); return new Date(+p[0], p[1] - 1, +p[2]); }
   if (up && recent) {
-    var rows = up.querySelectorAll('.news-row');
+    var rows = $$('.news-row', up);
     for (var i = rows.length - 1; i >= 0; i--) {
-      var end = new Date(rows[i].getAttribute('data-end') + 'T23:59:59');
-      if (end < now) recent.insertBefore(rows[i], recent.firstElementChild);
+      var end = localDate(rows[i].getAttribute('data-end'));
+      if (end < today) { recent.insertBefore(rows[i], recent.firstElementChild); continue; }
+      var tm = $('time', rows[i]);
+      var days = Math.round((localDate(tm.getAttribute('datetime')) - today) / DAY);
+      var c = document.createElement('span');
+      c.className = 'countdown';
+      c.textContent = days > 1 ? 'in ' + days + ' days' : days === 1 ? 'tomorrow' : 'happening now';
+      tm.parentNode.appendChild(c);
     }
-    if (!up.querySelector('.news-row')) up.hidden = true;
+    if (!$('.news-row', up)) up.hidden = true;
   }
 
   // ── "updated" stamp from the server's Last-Modified header. Without that
   //    header the browser reports the current time, so skip it then. ──
   var mod = new Date(document.lastModified);
   if (!isNaN(mod) && now - mod > 60000) {
-    var stamp = document.querySelector('.updated');
-    stamp.querySelector('.updated-date').textContent =
+    var stamp = $('.updated');
+    $('.updated-date', stamp).textContent =
       mod.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }).toLowerCase();
     stamp.hidden = false;
   }
 
-  // ── Photo lightbox. Links still work as plain image links without JS. ──
-  var box = document.querySelector('.lightbox');
+  // ── Local time in Tempe. Arizona keeps MST all year, so a fixed zone. ──
+  var clock = $('.clock');
+  if (clock && window.Intl) {
+    var fmt = new Intl.DateTimeFormat('en-GB', { timeZone: 'America/Phoenix', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+    var tick = function () { clock.textContent = fmt.format(new Date()); };
+    tick(); setInterval(tick, 1000);
+    clock.parentNode.hidden = false;
+  }
+
+  // ── Sticky bar: reading progress and the section in view. ──
+  var bar = $('.topbar');
+  var navLinks = $$('.topbar .left a');
+  var ticking = false;
+  function onScroll() {
+    var h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.setProperty('--p', h > 0 ? Math.min(1, scrollY / h).toFixed(4) : 0);
+    ticking = false;
+  }
+  addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  onScroll();
+  if ('IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        navLinks.forEach(function (a) {
+          var on = a.getAttribute('href') === '#' + e.target.id;
+          a.classList.toggle('is-active', on);
+          if (on) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current');
+          // On phones the nav scrolls sideways; keep the active item in view.
+          var nav = a.parentNode;
+          if (on && nav.scrollWidth > nav.clientWidth) {
+            var l = a.offsetLeft - nav.offsetLeft;
+            if (l < nav.scrollLeft || l + a.offsetWidth > nav.scrollLeft + nav.clientWidth - 24)
+              nav.scrollTo({ left: Math.max(0, l - 12), behavior: reduce ? 'auto' : 'smooth' });
+          }
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    $$('main > section').forEach(function (s) { spy.observe(s); });
+  }
+
+  // ── Copy-to-clipboard with a small confirmation. ──
+  var toast = $('.toast'), toastTimer;
+  function say(msg) {
+    toast.textContent = msg;
+    toast.classList.add('is-on');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove('is-on'); }, 1800);
+  }
+  function copy(text) {
+    if (!navigator.clipboard) return;
+    navigator.clipboard.writeText(text).then(function () { say('copied → ' + text); }, function () {});
+  }
+  if (navigator.clipboard && window.isSecureContext) {
+    $$('[data-copy]').forEach(function (b) {
+      b.hidden = false;
+      b.addEventListener('click', function () { copy(b.getAttribute('data-copy')); });
+    });
+  }
+
+  // ── Photo lightbox. Links still work as plain image links without JS.
+  //    Arrow keys and swipes step through the strip. ──
+  var box = $('.lightbox');
   if (box && box.showModal) {
-    var big = box.querySelector('img');
-    document.querySelectorAll('.snap-link').forEach(function (a) {
+    var big = $('img', box), shots = $$('.snap-link'), cur = 0;
+    var count = $('.lightbox-count', box), cap = $('.lightbox-cap', box);
+    function show(n) {
+      cur = (n + shots.length) % shots.length;
+      var a = shots[cur];
+      big.classList.add('is-loading');
+      var next = new Image();
+      next.onload = next.onerror = function () {
+        big.src = next.src;
+        big.alt = $('img', a).alt;
+        big.classList.remove('is-loading');
+      };
+      next.src = a.getAttribute('href');
+      count.textContent = String(cur + 1).padStart(2, '0') + ' / ' + String(shots.length).padStart(2, '0');
+      cap.textContent = $('img', a).alt;
+    }
+    shots.forEach(function (a, n) {
       a.addEventListener('click', function (e) {
         e.preventDefault();
-        big.src = a.getAttribute('href');
-        big.alt = a.querySelector('img').alt;
+        show(n);
         box.showModal();
       });
     });
-    box.querySelector('.lightbox-close').addEventListener('click', function () { box.close(); });
+    $('.lightbox-close', box).addEventListener('click', function () { box.close(); });
+    $('.lightbox-prev', box).addEventListener('click', function () { show(cur - 1); });
+    $('.lightbox-next', box).addEventListener('click', function () { show(cur + 1); });
     box.addEventListener('click', function (e) { if (e.target === box) box.close(); });
+    box.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') show(cur + 1);
+      if (e.key === 'ArrowLeft') show(cur - 1);
+    });
+    var sx = null;
+    var stage = $('.lightbox-stage', box);
+    stage.addEventListener('pointerdown', function (e) { sx = e.clientX; });
+    stage.addEventListener('pointerup', function (e) {
+      if (sx === null) return;
+      var dx = e.clientX - sx; sx = null;
+      if (Math.abs(dx) > 40) show(cur + (dx < 0 ? 1 : -1));
+    });
+  }
+
+  // ── Command menu: ⌘K / Ctrl+K or "/" — a terminal-style jump list. ──
+  var pal = $('.palette');
+  if (pal && pal.showModal) {
+    var input = $('input', pal), list = $('.palette-list', pal), hintBtn = $('.kbd-hint');
+    var mac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
+    hintBtn.textContent = mac ? '[⌘K]' : '[ctrl K]';
+    hintBtn.hidden = false;
+    function go(id) { return function () { var el = document.getElementById(id); if (el) el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); history.replaceState(null, '', id === 'about' ? location.pathname : '#' + id); }; }
+    function open(url) { return function () { if (url.indexOf('mailto:') === 0) location.href = url; else window.open(url, '_blank', 'noopener'); }; }
+    var cmds = [
+      ['/news', 'section', go('news')],
+      ['/research', 'section', go('research')],
+      ['/background', 'section', go('background')],
+      ['/off-duty', 'section', go('off')],
+      ['/contact', 'section', go('contact')],
+      ['/top', 'section', go('about')],
+      ['email', 'weiboli@asu.edu', open('mailto:weiboli@asu.edu?subject=Research%20Inquiry%20from%20Personal%20Site')],
+      ['copy email', 'clipboard', function () { copy('weiboli@asu.edu'); }],
+      ['scholar', 'google scholar', open('https://scholar.google.com/citations?user=8kWPa38AAAAJ')],
+      ['linkedin', 'profile', open('https://www.linkedin.com/in/weibo-weber')],
+      ['github', 'Weber-LiWb', open('https://github.com/Weber-LiWb')],
+      ['asu profile', 'search.asu.edu', open('https://search.asu.edu/profile/5073811')],
+      ['paper', 'arXiv 2606.07017', open('https://arxiv.org/abs/2606.07017')],
+      ['theme', 'toggle dark / light', function () { toggleTheme(t); }]
+    ];
+    if (!navigator.clipboard || !window.isSecureContext) cmds.splice(7, 1);
+    var shown = [], sel = 0;
+    function render() {
+      var q = input.value.trim().toLowerCase().replace(/^\//, '');
+      shown = cmds.filter(function (c) { return !q || (c[0] + ' ' + c[1]).toLowerCase().indexOf(q) !== -1; });
+      sel = Math.min(sel, Math.max(shown.length - 1, 0));
+      list.innerHTML = '';
+      if (!shown.length) {
+        var li = document.createElement('li');
+        li.className = 'empty';
+        li.textContent = 'command not found: ' + input.value;
+        list.appendChild(li);
+        input.removeAttribute('aria-activedescendant');
+        return;
+      }
+      shown.forEach(function (c, n) {
+        var li = document.createElement('li');
+        li.id = 'cmd-' + n;
+        li.setAttribute('role', 'option');
+        li.setAttribute('aria-selected', n === sel ? 'true' : 'false');
+        var l = document.createElement('span'); l.className = 'label'; l.textContent = c[0];
+        var h = document.createElement('span'); h.className = 'hint'; h.textContent = c[1];
+        li.appendChild(l); li.appendChild(h);
+        li.addEventListener('mousemove', function () { if (sel !== n) { sel = n; mark(); } });
+        li.addEventListener('click', function () { run(n); });
+        list.appendChild(li);
+      });
+      input.setAttribute('aria-activedescendant', 'cmd-' + sel);
+    }
+    function mark() {
+      $$('li[role="option"]', list).forEach(function (li, n) { li.setAttribute('aria-selected', n === sel ? 'true' : 'false'); });
+      input.setAttribute('aria-activedescendant', 'cmd-' + sel);
+      var el = document.getElementById('cmd-' + sel);
+      if (el) el.scrollIntoView({ block: 'nearest' });
+    }
+    function run(n) { var c = shown[n]; if (!c) return; pal.close(); c[2](); }
+    function openPal() { if (pal.open) return; input.value = ''; sel = 0; render(); pal.showModal(); input.focus(); }
+    input.addEventListener('input', function () { sel = 0; render(); });
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown') { e.preventDefault(); if (shown.length) { sel = (sel + 1) % shown.length; mark(); } }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); if (shown.length) { sel = (sel - 1 + shown.length) % shown.length; mark(); } }
+      else if (e.key === 'Enter') { e.preventDefault(); run(sel); }
+    });
+    pal.addEventListener('click', function (e) { if (e.target === pal) pal.close(); });
+    hintBtn.addEventListener('click', openPal);
+    document.addEventListener('keydown', function (e) {
+      var typing = /INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName) || document.activeElement.isContentEditable;
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); if (pal.open) pal.close(); else openPal(); }
+      else if (e.key === '/' && !typing && !e.metaKey && !e.ctrlKey && !e.altKey && !(box && box.open)) { e.preventDefault(); openPal(); }
+    });
   }
 })();
 </script>
