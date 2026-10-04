@@ -109,7 +109,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   border-radius: 2px;
 }
 /* Mono "terminal" links carry no underline at rest. */
-.bare, .topbar a, .hero-links a, .paper-links a, .snap-link, .tail a {
+.bare, .topbar a, .hero-links a, .collab, .paper-links a, .snap-link, .tail a {
   background-image: linear-gradient(currentColor, currentColor);
   background-size: 0% 1px;
 }
@@ -330,6 +330,18 @@ h1.name .w > span { display: inline-block; }
 .hero-links a { color: var(--link); }
 .hero-links a:hover { color: var(--link-hover); }
 .hero-links a::before { content: '» '; color: var(--ink-3); }
+/* Cross-reference to the contact section, set like a citation. */
+.collab {
+  display: inline-block;
+  margin-top: 14px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-2);
+}
+.collab:hover { color: var(--ink); }
+.collab .dot { color: var(--accent); font-size: 9px; vertical-align: 1px; margin-right: 4px; animation: blink 1.6s steps(2) infinite; }
+.collab .xref { color: var(--link); margin-left: 6px; }
+.collab:hover .xref { color: var(--link-hover); }
 
 /* ─── Sections ─── */
 .sec {
@@ -946,7 +958,7 @@ footer.tail {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .topbar .right .dot, .countdown::before, .caret { animation: none; }
+  .topbar .right .dot, .countdown::before, .caret, .collab .dot { animation: none; }
   *, *::before, *::after { transition-duration: .01ms !important; }
 }
 
