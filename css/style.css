@@ -274,7 +274,6 @@ h1.name .w > span { display: inline-block; }
   letter-spacing: 0.02em;
   padding-bottom: .9em; /* sits on the name's baseline, not its descender box */
 }
-.statement + .bio { margin-top: 28px; }
 .role .sep { color: var(--accent-strong); margin: 0 6px; }
 
 .bio { max-width: 60ch; }
@@ -282,6 +281,16 @@ h1.name .w > span { display: inline-block; }
   font-size: 18px;
   line-height: 1.7;
   margin-bottom: 14px;
+}
+/* With no tagline above it, the first paragraph opens the page: a step up
+   in size, set a little tighter, still within a comfortable measure. */
+.bio p:first-child {
+  font-size: clamp(19px, 1.5vw, 21.5px);
+  line-height: 1.58;
+  letter-spacing: -0.006em;
+  max-width: 36em;
+  margin-top: -0.3em; /* first line's cap height meets the portrait's top edge */
+  margin-bottom: 18px;
 }
 .bio p + p { color: var(--ink-2); font-size: 16.5px; }
 .bio em { font-style: italic; color: var(--accent-strong); font-weight: 500; }
@@ -915,9 +924,9 @@ footer.tail {
   .topbar .right .updated { display: none; }
   h1.name { font-size: clamp(46px, 14vw, 60px); }
   .bio p { font-size: 16.5px; }
+  .bio p:first-child { font-size: 18.5px; margin-top: 0; }
   .hero-grid { grid-template-columns: 1fr; grid-template-areas: "text" "card"; row-gap: 32px; }
   .role { padding-bottom: 0; }
-  .statement + .bio { margin-top: 22px; }
   /* Portrait and card sit side by side so the first screen isn't one tall photo. */
   .portrait-col {
     display: grid;
