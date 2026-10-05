@@ -16,15 +16,20 @@
     if (dark) document.documentElement.setAttribute('data-theme', 'dark');
   })();
   </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.typekit.net/quq4vwr.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<div class="page">
+<div class="page" style="padding-top:clamp(56px,12vh,120px)">
   <section class="hero">
-    <div class="prompt-line"><span class="p">weber@asu</span><span class="c">:~$</span> cd <span class="missing-path"></span></div>
+    <div class="prompt-line"><span class="p">weber@asu</span><span class="c">:~$</span> cd <span class="missing-path"></span><span class="caret" aria-hidden="true"></span></div>
     <h1 class="name">404</h1>
+    <hr class="hero-rule">
     <p class="statement">No such file or directory.</p>
-    <div class="bio"><p><a href="/">Back to liweibo.io</a></p></div>
+    <div class="bio" style="margin-top:28px"><p><a href="/">Back to liweibo.io</a></p></div>
   </section>
 </div>
 <script>document.querySelector('.missing-path').textContent = location.pathname;</script>
