@@ -33,9 +33,6 @@
     // Entrance and scroll animations hang off .js, so a visitor without
     // scripts sees the whole page at rest instead of hidden content.
     r.className += ' js';
-    // Safety net for the font gate in the main script: never hold the
-    // entrance animation longer than this, even if that script fails.
-    setTimeout(function () { r.className += ' fonts-in'; }, 2000);
   })();
   </script>
   <script type="application/ld+json">
@@ -417,17 +414,6 @@
   function $(s, c) { return (c || document).querySelector(s); }
   function $$(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
 
-  // ── Start the hero entrance once the faces it shows are loaded, or after
-  //    1.2s at most. Stylesheets (Adobe Fonts included) have been parsed by
-  //    the time this runs, so fonts.load() sees their @font-face rules. ──
-  (function () {
-    var go = function () { if (!/\bfonts-in\b/.test(root.className)) root.className += ' fonts-in'; };
-    if (!document.fonts || !document.fonts.load || reduce) return go();
-    var faces = ['200 100px neue-haas-grotesk-display', '400 16px neue-haas-grotesk-text', '400 13px "JetBrains Mono"'];
-    Promise.all(faces.map(function (f) { return document.fonts.load(f).catch(function () {}); })).then(go, go);
-    setTimeout(go, 1200);
-  })();
-
   // ── Scroll reveals. Runs first: if anything later throws, content still
   //    appears. Each element staggers against its siblings in view. ──
   var revealEls = $$('[data-reveal], [data-reveal-sec]');
@@ -462,10 +448,7 @@
   function toggleTheme(origin) {
     var dark = root.getAttribute('data-theme') !== 'dark';
     store(dark ? 'dark' : 'light');
-    // Needs both View Transitions and Web Animations on pseudo-elements;
-    // without the latter the clip-path would land on the live page itself.
-    var canWipe = document.startViewTransition && window.KeyframeEffect && 'pseudoElement' in KeyframeEffect.prototype;
-    if (!canWipe || reduce) { apply(dark); return; }
+    if (!document.startViewTransition || reduce) { apply(dark); return; }
     var r = (origin || t).getBoundingClientRect();
     var x = r.left + r.width / 2, y = r.top + r.height / 2;
     var end = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
