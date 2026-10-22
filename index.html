@@ -202,8 +202,13 @@
       <span class="meta">active directions</span>
     </div>
     <div class="sec-body">
+      <!-- Grouped by status, not by field: Work in progress → Journal papers →
+           Conference papers. The field and venue tier ride on each entry as a
+           .paper-tag, so a CS venue sits beside IS ones without its own list.
+           Add the Journal group (same markup as Conference) with its first
+           paper; an empty heading would only advertise a gap. -->
       <div class="research-group">
-        <h3 data-reveal>Research interests</h3>
+        <h3 data-reveal>Work in progress</h3>
         <div class="subhead" data-reveal>LLM post-training · digital platforms · agentic workflows</div>
         <div class="paper active" data-reveal>
           <div class="paper-title">LLM post-training for platform and agentic-workflow settings</div>
@@ -213,12 +218,13 @@
       </div>
 
       <div class="research-group">
-        <h3 data-reveal>Publications in CS</h3>
-        <div class="subhead" data-reveal>peer-reviewed · computer science venues</div>
+        <h3 data-reveal>Conference papers</h3>
+        <div class="subhead" data-reveal>peer-reviewed</div>
         <div class="paper pub" data-reveal>
           <div class="paper-title"><a href="https://arxiv.org/abs/2606.07017" rel="noopener">The Sim-to-Real Gap of Foundation Model Agents: A Unified MDP Perspective</a></div>
           <div class="paper-authors">Xiaoou Liu, Tiejin Chen, <b>Weibo Li</b>, Xiyang Hu, Hua Wei</div>
-          <div class="paper-venue">KDD 2026 · Blue Sky Ideas Track</div>
+          <div class="paper-venue"><b>KDD 2026</b> · Blue Sky Ideas Track</div>
+          <a class="paper-tag" href="https://portal.core.edu.au/conf-ranks/?search=KDD&amp;by=acronym&amp;source=all&amp;sort=arank&amp;page=1" rel="noopener" title="KDD in the ICORE conference rankings">CS top-tier · CORE A* ↗</a>
           <div class="paper-links">
             <a href="https://arxiv.org/abs/2606.07017" rel="noopener">arXiv</a>
             <a href="https://arxiv.org/pdf/2606.07017" rel="noopener">pdf</a>
