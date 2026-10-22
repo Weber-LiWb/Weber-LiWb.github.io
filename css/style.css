@@ -524,14 +524,6 @@ h1.name .w > span { display: inline-block; }
   border: 1px dashed var(--rule-strong);
   border-radius: 2px;
 }
-/* A tag that cites its source: same chip, solid edge, no underline. */
-a.paper-tag {
-  color: var(--ink-2);
-  background-image: none;
-  border-style: solid;
-  transition: color .2s var(--ease), border-color .2s var(--ease);
-}
-a.paper-tag:hover { color: var(--link-hover); border-color: var(--link); }
 .paper-title a { color: var(--ink); }
 .paper-title a:hover { color: var(--link-hover); }
 .paper-authors {
@@ -545,7 +537,8 @@ a.paper-tag:hover { color: var(--link-hover); border-color: var(--link); }
   color: var(--ink-2);
   font-style: italic;
 }
-.paper-venue b { color: var(--ink); font-weight: 600; font-style: normal; }
+.paper-venue a { color: var(--ink); font-weight: 600; font-style: normal; }
+.paper-venue a:hover { color: var(--link-hover); }
 .paper-links {
   display: flex;
   gap: 16px;
