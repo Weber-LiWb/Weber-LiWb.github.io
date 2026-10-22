@@ -537,6 +537,8 @@ h1.name .w > span { display: inline-block; }
   color: var(--ink-2);
   font-style: italic;
 }
+.paper-venue a { color: var(--ink); font-weight: 600; font-style: normal; }
+.paper-venue a:hover { color: var(--link-hover); }
 .paper-links {
   display: flex;
   gap: 16px;
