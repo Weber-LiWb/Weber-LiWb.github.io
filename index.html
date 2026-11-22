@@ -107,10 +107,10 @@
       <div class="hero-text">
         <div class="bio hero-in" style="--d:0">
           <p>
-            Hi — I&rsquo;m Weibo Li (<span lang="zh">李炜博</span>), a <span class="phd-year">third</span>-year PhD student in Computer Information Systems at the <a href="https://wpcarey.asu.edu/" rel="noopener">W.P. Carey School of Business</a>, <a href="https://www.asu.edu/" rel="noopener">Arizona State University</a>. My research focuses on LLM post-training, specifically its applications in digital platforms and agentic workflows.
+            Hi — I&rsquo;m Weibo Li (<span lang="zh">李炜博</span>), a <span class="phd-year">third</span>-year PhD student in Computer Information Systems at the <a href="https://wpcarey.asu.edu/" rel="noopener">W.P. Carey School of Business</a>, <a href="https://www.asu.edu/" rel="noopener">Arizona State University</a>. I work on LLM post-training for digital platforms and agentic workflows.
           </p>
           <p>
-            Prior to ASU, I earned my bachelor&rsquo;s degree from <a href="https://en.tongji.edu.cn/" rel="noopener">Tongji University</a> in Shanghai.
+            Before ASU, I studied at <a href="https://en.tongji.edu.cn/" rel="noopener">Tongji University</a> in Shanghai.
           </p>
         </div>
         <nav class="hero-links hero-in" style="--d:1" aria-label="Profiles">
@@ -166,8 +166,8 @@
       </div>
 
       <div class="news-group" data-group="recent">
-        <h3 class="news-label" data-reveal>Recent</h3>
-        <div class="news-list">
+        <h3 class="news-label" id="recent-label" data-reveal>Recent</h3>
+        <div class="news-list news-scroll" role="region" aria-labelledby="recent-label" tabindex="0">
           <div class="news-row" data-end="2026-07-05" data-reveal>
             <div class="when"><time datetime="2026-07-04">Jul 4–5, 2026</time></div>
             <div>
@@ -213,7 +213,7 @@
         <div class="subhead" data-reveal>LLM post-training · digital platforms · agentic workflows</div>
         <div class="paper active" data-reveal>
           <div class="paper-title">LLM post-training for platform and agentic-workflow settings</div>
-          <div class="paper-desc">My current work studies how post-trained LLM systems can be designed, evaluated, and deployed in digital-platform settings. Some projects are still early-stage, so this page keeps the research summary deliberately high-level.</div>
+          <div class="paper-desc">My work runs along two lines that keep crossing. One applies current AI methods, mainly LLM post-training, to business problems on digital platforms. The other designs artifacts to study how people and organizations work with AI.</div>
           <span class="paper-tag">early-stage work</span>
         </div>
       </div>
@@ -321,7 +321,7 @@
         <div class="list-block" data-reveal>
           <h4>Cities I keep returning to</h4>
           <ul>
-            <li><span class="bullet">◆</span> LA — favorite US city, no contest</li>
+            <li><span class="bullet hot">▸</span> LA — favorite US city, no contest</li>
             <li><span class="bullet">·</span> Paris / Rome / Barcelona — can&rsquo;t decide. each wins on different days.</li>
           </ul>
           <div class="note-inline">// plan: two laps around the world. first as a backpacker, second (post-retirement) staying at the one weird hotel per city.</div>
@@ -387,7 +387,7 @@
         <button type="button" class="copy-btn" data-copy="weiboli@asu.edu" hidden>» copy address</button>
       </div>
       <div class="sig-text" data-reveal>
-        I&rsquo;d be happy to meet briefly if you are interested in my research or have any questions. Please include enough information about the purpose of the meeting. Best reached at <a href="mailto:weiboli@asu.edu">weiboli@asu.edu</a>.
+        Happy to meet briefly about research. Tell me what the meeting is for when you write.
       </div>
     </div>
   </section>
@@ -395,7 +395,7 @@
   </main>
 
   <footer class="tail">
-    <span>© 2026 weibo li · built by hand, served from ~/</span>
+    <span>© 2026 weibo li · served from ~/</span>
     <span class="tail-right"><a href="#about">↑ top</a><span class="sync-meta">liweibo.io</span></span>
   </footer>
 
@@ -501,6 +501,15 @@
       tm.parentNode.appendChild(c);
     }
     if (!$('.news-row', up)) up.hidden = true;
+  }
+  // The Recent list scrolls in place; fade its bottom edge while rows remain below.
+  if (recent) {
+    var more = function () {
+      recent.classList.toggle('has-more', recent.scrollHeight - recent.scrollTop - recent.clientHeight > 4);
+    };
+    recent.addEventListener('scroll', more, { passive: true });
+    addEventListener('resize', more);
+    more();
   }
 
   // ── "updated" stamp from the server's Last-Modified header. Without that
